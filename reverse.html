@@ -1,0 +1,29 @@
+<html>
+     <head><title>Reverse the string</title>
+     <script type="text/javascript">
+         function reverse_string()
+         {
+             var text = document.space.text.value;
+             var new_text, text_length;
+             new_text = "";
+             text_length = text.length;
+             while (text_length >0)
+             {
+                 new_text += text.substring(text_length - 1,text_length);
+                 text_length --;
+             }
+             alert("Original Text : " + text + "\n Reversed text : " + new_text); 
+        
+         }
+     </script>
+     </head>
+<body>
+    <form name="space" action="#" method="post" >
+    <fieldset>
+    <legend>Enter the text</legend>
+    <p><textarea name="text" value="text">Enter the text here</textarea>
+    <p><input type="submit" value="Submit" onClick="reverse_string()">
+    </form>
+    </fieldset>
+</body>
+</html>
