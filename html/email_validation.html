@@ -1,0 +1,24 @@
+<html>
+     <head><title>Validate email </title>
+     <script type="text/javascript">
+         function validate_email()
+         {
+             var email = document.email_id.email.value
+             var email_pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
+             var result;
+             if (email_pattern.test(email))
+                 result = "valid";
+             else
+                 result = "Invalid";
+             alert("Email: " + email + " is " + result);
+        
+         }
+     </script>
+     </head>
+<body>
+    <form name="email_id" action="#" method="post" >
+    <fieldset>
+    <legend>Email</legend>
+    <p><input type="text" name="email" value="email"></textarea>
+    <p><input type="submit" value="Submit" onClick="validate_email()">
+    </form>

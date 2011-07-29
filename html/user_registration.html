@@ -1,0 +1,53 @@
+<html>
+     <head><title>User Input Validation</title>
+     <script type="text/javascript">
+         function validate()
+         {//function to validate user input , and if everything goes right , say congrats
+             /*
+             Username condition:
+               1.Must be of 8 characters minimum and maximum 20 charcters.
+             Password Condition:
+               Password can't be blank and both password must match.
+             Pincode Condition:  
+               It should be 6 digit.
+
+             */
+             var username,new_password,confirm_password,pincode;
+             username = document.user_details.username.value;
+             new_password = document.user_details.new_password.value;
+             confirm_password = document.user_details.confirm_password.value;
+             pincode = document.user_details.pincode.value;
+             if (pincode.length !== 6 || pincode < 100000)
+                alert("Pincode must be six digit numeric ,e.g = 642109 ");
+             else if(new_password == ' ')
+                alert(" Password cannot be blank");
+             else if(new_password != confirm_password)
+                alert(" Passwords don't match");
+             else if(username.length <= 8 || username.length >= 20)
+                alert(" Username should be minumim 8 characters and maximum 20 characters ");
+             else 
+             {
+                document.write("Congrats You have entered all valid details");
+             } 
+                 
+             return 1; 
+
+         }
+     </script>
+     </head>
+<body >
+    <form name="user_details" action="#" method="post" >
+    <fieldset>
+    <legend>Username</legend>
+    <p><input type="text" name="username" />
+    <legend>Password</legend>
+    <p><input type="password" name="new_password"/></p>
+    <legend>Confirm Password </legend>
+    <p><input type="password" name="confirm_password" /></p>
+    <legend>Pincode </legend>
+    <p><input type="text" name="pincode" /></p>
+    <p><input type="submit" value="Submit" onClick="validate()" /> 
+    </form>
+    </fieldset>
+</body>
+</html>

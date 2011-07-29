@@ -1,0 +1,22 @@
+<html>
+     <head><title>Count No of Spaces in a text</title>
+     <script type="text/javascript">
+         function find_spaces()
+         {
+             var text = document.space.text.value;
+             var total_spaces = text.split(' ').length;
+             alert("Text: " + text + " has " + total_spaces + " spaces ");
+        
+         }
+     </script>
+     </head>
+<body>
+    <form name="space" action="#" method="post" >
+    <fieldset>
+    <legend>Enter the text</legend>
+    <p><textarea name="text" value="text">Enter the text here</textarea>
+    <p><input type="submit" value="Submit" onClick="find_spaces()">
+    </form>
+    </fieldset>
+</body>
+</html>
