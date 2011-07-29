@@ -1,0 +1,4247 @@
+mysql> create database assignment
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE TABLE emp
+    -> 
+    -> (empno int PRIMARY KEY ,
+    -> 
+    -> enAME varchar(20) NOT NULL,
+    -> 
+    -> job varchar(20),
+    -> 
+    -> mgrid int,
+    -> 
+    -> doj datetime,
+    -> 
+    -> sql decimal(9,2),
+    -> 
+    -> comm decimal(9,2),
+    -> 
+    -> deptno int);
+ERROR 1046 (3D000): No database selected
+mysql> use assignment;
+Database changed
+mysql> CREATE TABLE emp  (empno int PRIMARY KEY ,  enAME varchar(20) NOT NULL,  job varchar(20),  mgrid int,  doj datetime,  sql decimal(9,2),  comm decimal(9,2),  deptno int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sql decimal(9,2),  comm decimal(9,2),  deptno int)' at line 1
+mysql> CREATE TABLE emp  (empno int PRIMARY KEY ,  ename varchar(20) NOT NULL,  job varchar(20),  mgrid int,  doj datetime,  sal decimal(9,2),  comm decimal(9,2),  deptno int);
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> insert into emp values(17934,'MILLER','CLERK',17782,'01/23/2002',1430,NULL,10);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17369,'SMITH','CLERK',17902,'12/11/1999',800,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17499,'ALLEN','SALESMAN',17698,'02/20/2001',1600,300,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> insert into emp values(17521,'WARD','SALESMAN',17698,'02/22/2001',1250,500,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17566,'JONES','MANAGER',17839,'04/21/2001',2975,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17654,'MARTIN','SALESMAN',17698,'02/02/2002', 1250,1400,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17782,'CLARK', 'MANAGER',17839,'05/01/2001',2850,NULL,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17788,'SCOTT','ANALYST',17839,'06/09/2001',3000,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17839,'KING','PRESIDENT',NULL,'11/19/2001',5000,NULL,10);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17844,'TURNER','SALESMAN',17698,'09/08/2001',1500,0,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17876,'ADAMS', 'CLERK',17788,'01/12/2003',1100,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17900,'JAMES','CLERK',17900,'12/03/2001',950,NULL,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17902,'FORD','ANALYST',17902,'12/04/2001',3000,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17698,'BLAKE','MANAGER',17839,'12/04/2001',2450,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> CREATE TABLE dept
+    -> 
+    -> (deptno int   PRIMARY KEY ,
+    -> 
+    ->  dname  varchar(20) NOT NULL,
+    -> 
+    ->  loc varchar(20));
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> INSERT INTO dept VALUES(10,'ACCOUNTS','DELHI');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> INSERT INTO dept VALUES(20,'SALES','BOSTON');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> INSERT INTO dept VALUES(30,'ADMIN','DALLAS');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> INSERT INTO dept VALUES(40,'RESEARCH','KOLKATA');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> desc dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | NO   | PRI | NULL    |       |
+| dname  | varchar(20) | NO   |     | NULL    |       |
+| loc    | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 0000-00-00 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 0000-00-00 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 0000-00-00 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 0000-00-00 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 0000-00-00 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 0000-00-00 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 0000-00-00 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select ename from where job = 'analysts' and job = 'salesman';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where job = 'analysts' and job = 'salesman'' at line 1
+mysql> select ename from emp where job = 'analysts' and job = 'salesman';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where job = 'analysts' or job = 'salesman';
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| TURNER |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/2011'
+    -> ;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 0000-00-00 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 0000-00-00 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 0000-00-00 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 0000-00-00 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 0000-00-00 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 0000-00-00 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 0000-00-00 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> 
+mysql> select last_day('23-12-2009');
++------------------------+
+| last_day('23-12-2009') |
++------------------------+
+| NULL                   |
++------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select str_to_date('23/12/1989', '%m/%d/%y');
++---------------------------------------+
+| str_to_date('23/12/1989', '%m/%d/%y') |
++---------------------------------------+
+| NULL                                  |
++---------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select str_to_date('23/12/1989', '%d/%m/%y');
++---------------------------------------+
+| str_to_date('23/12/1989', '%d/%m/%y') |
++---------------------------------------+
+| 2019-12-23                            |
++---------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select str_to_date('23/12/1989', '%d/%m/%Y');
++---------------------------------------+
+| str_to_date('23/12/1989', '%d/%m/%Y') |
++---------------------------------------+
+| 1989-12-23                            |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> delete from emp;
+Query OK, 14 rows affected (0.00 sec)
+
+mysql> insert into emp values(17934,'MILLER','CLERK',17782,str_to_date('01/23/2002', '%m/%d/%Y),1430,NULL,10);
+    '> insert into emp values(17369,'SMITH','CLERK',17902,str_to_date('12/11/1999', '%m/%d/%Y),800,NULL,20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','CLERK',17902,str_to_date('12/11/1999', '%m/%d/%Y),800,NULL,20)' at line 1
+mysql> insert into emp values(17499,'ALLEN','SALESMAN',17698,str_to_date('02/20/2001', '%m/%d/%Y),1600,300,30);
+    '> insert into emp values(17521,'WARD','SALESMAN',17698,str_to_date('02/22/2001', '%m/%d/%Y),1250,500,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','SALESMAN',17698,str_to_date('02/22/2001', '%m/%d/%Y),1250,500,30)' at line 1
+mysql> insert into emp values(17566,'JONES','MANAGER',17839,str_to_date('04/21/2001', '%m/%d/%Y),2975,NULL,20);
+    '> insert into emp values(17654,'MARTIN','SALESMAN',17698,str_to_date('02/02/2002', '%m/%d/%Y), 1250,1400,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','SALESMAN',17698,str_to_date('02/02/2002', '%m/%d/%Y), 1250,1400,30)' at line 1
+mysql> insert into emp values(17782,'CLARK', 'MANAGER',17839,str_to_date('05/01/2001', '%m/%d/%Y),2850,NULL,30);
+    '> insert into emp values(17788,'SCOTT','ANALYST',17839,str_to_date('06/09/2001', '%m/%d/%Y),3000,NULL,20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','ANALYST',17839,str_to_date('06/09/2001', '%m/%d/%Y),3000,NULL,20)' at line 1
+mysql> insert into emp values(17839,'KING','PRESIDENT',NULL,str_to_date('11/19/2001', '%m/%d/%Y),5000,NULL,10);
+    '> insert into emp values(17844,'TURNER','SALESMAN',17698,str_to_date('09/08/2001', '%m/%d/%Y),1500,0,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','SALESMAN',17698,str_to_date('09/08/2001', '%m/%d/%Y),1500,0,30)' at line 1
+mysql> insert into emp values(17876,'ADAMS', 'CLERK',17788,str_to_date('01/12/2003', '%m/%d/%Y),1100,NULL,20);
+    '> insert into emp values(17900,'JAMES','CLERK',17900,str_to_date('12/03/2001', '%m/%d/%Y),950,NULL,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','CLERK',17900,str_to_date('12/03/2001', '%m/%d/%Y),950,NULL,30)' at line 1
+mysql> insert into emp values(17902,'FORD','ANALYST',17902,str_to_date('12/04/2001', '%m/%d/%Y),3000,NULL,20);
+    '> insert into emp values(17698,'BLAKE','MANAGER',17839,str_to_date('12/04/2001', '%m/%d/%Y),2450,NULL,20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','MANAGER',17839,str_to_date('12/04/2001', '%m/%d/%Y),2450,NULL,20)' at line 1
+mysql> insert into emp values(17698,'BLAKE','MANAGER',17839,str_to_date('12/04/2001', '%m/%d/%Y),2450,NULL,20);
+    '> 
+    '> ;
+    '> '
+    -> ^CCtrl-C -- exit!
+Aborted
+kracekumar@python-lover:/var/lib/postgresql/8.4$ mysql -u root -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+kracekumar@python-lover:/var/lib/postgresql/8.4$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 97
+Server version: 5.1.54-1ubuntu4 (Ubuntu)
+
+Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved.
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use assignment;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> insert into emp values(17934,'MILLER','CLERK',17782,str_to_date('01/23/2002', '%m/%d/%Y'),1430,NULL,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17369,'SMITH','CLERK',17902,str_to_date('12/11/1999', '%m/%d/%Y'),800,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17499,'ALLEN','SALESMAN',17698,str_to_date('02/20/2001', '%m/%d/%Y'),1600,300,30);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values(17521,'WARD','SALESMAN',17698,str_to_date('02/22/2001', '%m/%d/%Y'),1250,500,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17566,'JONES','MANAGER',17839,str_to_date('04/21/2001', '%m/%d/%Y'),2975,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17654,'MARTIN','SALESMAN',17698,str_to_date('02/02/2002', '%m/%d/%Y'), 1250,1400,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17782,'CLARK', 'MANAGER',17839,str_to_date('05/01/2001', '%m/%d/%Y'),2850,NULL,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17788,'SCOTT','ANALYST',17839,str_to_date('06/09/2001', '%m/%d/%Y'),3000,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17839,'KING','PRESIDENT',NULL,str_to_date('11/19/2001', '%m/%d/%Y'),5000,NULL,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17844,'TURNER','SALESMAN',17698,str_to_date('09/08/2001', '%m/%d/%Y'),1500,0,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17876,'ADAMS', 'CLERK',17788,str_to_date('01/12/2003', '%m/%d/%Y'),1100,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17900,'JAMES','CLERK',17900,str_to_date('12/03/2001', '%m/%d/%Y'),950,NULL,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17902,'FORD','ANALYST',17902,str_to_date('12/04/2001', '%m/%d/%Y'),3000,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17698,'BLAKE','MANAGER',17839,str_to_date('12/04/2001', '%m/%d/%Y'),2450,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/2011'
+    -> ;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/1989]'
+    -> ;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/1981]';
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/1981';
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '1981/09/30';
+Empty set (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/1981';
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select name from emp where job != 'manager';
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select ename from emp where job != 'manager';
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
++--------+
+11 rows in set (0.00 sec)
+
+mysql> select ename, job from emp where job != 'manager';
++--------+-----------+
+| ename  | job       |
++--------+-----------+
+| MILLER | CLERK     |
+| SMITH  | CLERK     |
+| ALLEN  | SALESMAN  |
+| WARD   | SALESMAN  |
+| MARTIN | SALESMAN  |
+| SCOTT  | ANALYST   |
+| KING   | PRESIDENT |
+| TURNER | SALESMAN  |
+| ADAMS  | CLERK     |
+| JAMES  | CLERK     |
+| FORD   | ANALYST   |
++--------+-----------+
+11 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select name from emp where empno in (7369, 7521, 7839, 7934,
+    -> 7788
+    -> );
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select ename from emp where empno in (7369, 7521, 7839, 7934, 7788 );
+Empty set (0.00 sec)
+
+mysql> select ename from emp;
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| JONES  |
+| MARTIN |
+| CLARK  |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> select empno from emp;
++-------+
+| empno |
++-------+
+| 17369 |
+| 17499 |
+| 17521 |
+| 17566 |
+| 17654 |
+| 17698 |
+| 17782 |
+| 17788 |
+| 17839 |
+| 17844 |
+| 17876 |
+| 17900 |
+| 17902 |
+| 17934 |
++-------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where empno in (17369, 17521, 17839, 17934, 17788 );
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| WARD   |
+| SCOTT  |
+| KING   |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     10 |
+|     30 |
+|     20 |
+|     30 |
+|     20 |
+|     20 |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where deptno not in (10, 30, 40);
++-------+
+| ename |
++-------+
+| SMITH |
+| JONES |
+| SCOTT |
+| ADAMS |
+| FORD  |
+| BLAKE |
++-------+
+6 rows in set (0.00 sec)
+
+mysql> select ename, deptno from emp where deptno not in (10, 30, 40);
++-------+--------+
+| ename | deptno |
++-------+--------+
+| SMITH |     20 |
+| JONES |     20 |
+| SCOTT |     20 |
+| ADAMS |     20 |
+| FORD  |     20 |
+| BLAKE |     20 |
++-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select ename from emp where doj between '2001/06/30' and 2001/12/31' ;
+    '> '
+    -> '
+    '> '
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' ;
+'
+'
+'' at line 1
+mysql> select ename from emp where doj between '2001/06/30' and '2001/12/31' ;
++--------+
+| ename  |
++--------+
+| KING   |
+| TURNER |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select ename from emp where doj between '2001/06/30' and '2001/12/31' ;
++--------+
+| ename  |
++--------+
+| KING   |
+| TURNER |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_assignment |
++----------------------+
+| dept                 |
+| emp                  |
++----------------------+
+2 rows in set (0.00 sec)
+
+mysql> desc dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | NO   | PRI | NULL    |       |
+| dname  | varchar(20) | NO   |     | NULL    |       |
+| loc    | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select distinct dept from dept;
+ERROR 1054 (42S22): Unknown column 'dept' in 'field list'
+mysql> select distinct dname from dept;
++----------+
+| dname    |
++----------+
+| ACCOUNTS |
+| SALES    |
+| ADMIN    |
+| RESEARCH |
++----------+
+4 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select comm from emp;
++---------+
+| comm    |
++---------+
+|    NULL |
+|    NULL |
+|  300.00 |
+|  500.00 |
+|    NULL |
+| 1400.00 |
+|    NULL |
+|    NULL |
+|    NULL |
+|    0.00 |
+|    NULL |
+|    NULL |
+|    NULL |
+|    NULL |
++---------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where comm is not null;
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| TURNER |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,comm from emp where comm is not null;
++--------+---------+
+| ename  | comm    |
++--------+---------+
+| ALLEN  |  300.00 |
+| WARD   |  500.00 |
+| MARTIN | 1400.00 |
+| TURNER |    0.00 |
++--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,comm from emp where comm >= 0;
++--------+---------+
+| ename  | comm    |
++--------+---------+
+| ALLEN  |  300.00 |
+| WARD   |  500.00 |
+| MARTIN | 1400.00 |
+| TURNER |    0.00 |
++--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,comm from emp where comm > 0;
++--------+---------+
+| ename  | comm    |
++--------+---------+
+| ALLEN  |  300.00 |
+| WARD   |  500.00 |
+| MARTIN | 1400.00 |
++--------+---------+
+3 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> selet mgrid from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selet mgrid from emp' at line 1
+mysql> select mgrid from emp;
++-------+
+| mgrid |
++-------+
+| 17782 |
+| 17902 |
+| 17698 |
+| 17698 |
+| 17839 |
+| 17698 |
+| 17839 |
+| 17839 |
+|  NULL |
+| 17698 |
+| 17788 |
+| 17900 |
+| 17902 |
+| 17839 |
++-------+
+14 rows in set (0.00 sec)
+
+mysql> desc  dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | NO   | PRI | NULL    |       |
+| dname  | varchar(20) | NO   |     | NULL    |       |
+| loc    | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select mgrid from emp;
++-------+
+| mgrid |
++-------+
+| 17782 |
+| 17902 |
+| 17698 |
+| 17698 |
+| 17839 |
+| 17698 |
+| 17839 |
+| 17839 |
+|  NULL |
+| 17698 |
+| 17788 |
+| 17900 |
+| 17902 |
+| 17839 |
++-------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where mgrid is null;
++-------+
+| ename |
++-------+
+| KING  |
++-------+
+1 row in set (0.00 sec)
+
+mysql> descemp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'descemp' at line 1
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     10 |
+|     30 |
+|     20 |
+|     30 |
+|     20 |
+|     20 |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     10 |
+|     30 |
+|     20 |
+|     30 |
+|     20 |
+|     20 |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> desc dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | NO   | PRI | NULL    |       |
+| dname  | varchar(20) | NO   |     | NULL    |       |
+| loc    | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select*  dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dept' at line 1
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> show create table emp;
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                                                                                                                                                                                                                                             |
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| emp   | CREATE TABLE `emp` (
+  `empno` int(11) NOT NULL,
+  `ename` varchar(20) NOT NULL,
+  `job` varchar(20) DEFAULT NULL,
+  `mgrid` int(11) DEFAULT NULL,
+  `doj` datetime DEFAULT NULL,
+  `sal` decimal(9,2) DEFAULT NULL,
+  `comm` decimal(9,2) DEFAULT NULL,
+  `deptno` int(11) DEFAULT NULL,
+  PRIMARY KEY (`empno`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 |
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ename from emp where deptno is null;
+Empty set (0.00 sec)
+
+mysql> select ename from emp where comm is not null;
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| TURNER |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp;
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| JONES  |
+| MARTIN |
+| CLARK  |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '%s';
++-------+
+| ename |
++-------+
+| JONES |
+| ADAMS |
+| JAMES |
++-------+
+3 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like 's%';
++-------+
+| ename |
++-------+
+| SMITH |
+| SCOTT |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '%s%';
++-------+
+| ename |
++-------+
+| SMITH |
+| JONES |
+| SCOTT |
+| ADAMS |
+| JAMES |
++-------+
+5 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '_i';
+Empty set (0.00 sec)
+
+mysql> select ename from emp;
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| JONES  |
+| MARTIN |
+| CLARK  |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '__i';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like 'i';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like 'i%';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like '%i';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like '%i%';
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| MARTIN |
+| KING   |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '_i%';
++--------+
+| ename  |
++--------+
+| MILLER |
+| KING   |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select count(ename) from emp
+    -> ;
++--------------+
+| count(ename) |
++--------------+
+|           14 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select count(ename) as total_employees_in_the_company from emp;
++--------------------------------+
+| total_employees_in_the_company |
++--------------------------------+
+|                             14 |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select count(distinct job) from emp;
++---------------------+
+| count(distinct job) |
++---------------------+
+|                   5 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select (distinct job) from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'distinct job) from emp' at line 1
+mysql> select distinct job from emp;
++-----------+
+| job       |
++-----------+
+| CLERK     |
+| SALESMAN  |
+| MANAGER   |
+| ANALYST   |
+| PRESIDENT |
++-----------+
+5 rows in set (0.00 sec)
+
+mysql> select count(distinct job) from emp;
++---------------------+
+| count(distinct job) |
++---------------------+
+|                   5 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select sum(sal) deom emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'emp' at line 1
+mysql> select sum(sal) from emp;
++----------+
+| sum(sal) |
++----------+
+| 29155.00 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select max(sal) as max_salary, min(sal) as min_salary, avg(sal) as avg_salary from emp;
++------------+------------+-------------+
+| max_salary | min_salary | avg_salary  |
++------------+------------+-------------+
+|    5000.00 |     800.00 | 2082.500000 |
++------------+------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(sal) as salesman_max_Salary where job = 'salesman';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where job = 'salesman'' at line 1
+mysql> select max(sal) as salesman_max_Salary from emp where job = 'salesman';
++---------------------+
+| salesman_max_Salary |
++---------------------+
+|             1600.00 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select max(sal) as dept20_max_Sal, avg(sal) from emp where deptno = 20;
++----------------+-------------+
+| dept20_max_Sal | avg(sal)    |
++----------------+-------------+
+|        3000.00 | 2220.833333 |
++----------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(sal) as dept20_max_Sal, avg(sal) as dept20_avg_sal from emp where deptno = 20;
++----------------+----------------+
+| dept20_max_Sal | dept20_avg_sal |
++----------------+----------------+
+|        3000.00 |    2220.833333 |
++----------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> select ename, sal, sal * .10 as PF from emp;
++--------+---------+----------+
+| ename  | sal     | PF       |
++--------+---------+----------+
+| MILLER | 1430.00 | 143.0000 |
+| SMITH  |  800.00 |  80.0000 |
+| ALLEN  | 1600.00 | 160.0000 |
+| WARD   | 1250.00 | 125.0000 |
+| JONES  | 2975.00 | 297.5000 |
+| MARTIN | 1250.00 | 125.0000 |
+| CLARK  | 2850.00 | 285.0000 |
+| SCOTT  | 3000.00 | 300.0000 |
+| KING   | 5000.00 | 500.0000 |
+| TURNER | 1500.00 | 150.0000 |
+| ADAMS  | 1100.00 | 110.0000 |
+| JAMES  |  950.00 |  95.0000 |
+| FORD   | 3000.00 | 300.0000 |
+| BLAKE  | 2450.00 | 245.0000 |
++--------+---------+----------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp order by sal desc;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> 
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select ename, doj from emp order by doj desc;
++--------+---------------------+
+| ename  | doj                 |
++--------+---------------------+
+| ADAMS  | 2003-01-12 00:00:00 |
+| MARTIN | 2002-02-02 00:00:00 |
+| MILLER | 2002-01-23 00:00:00 |
+| FORD   | 2001-12-04 00:00:00 |
+| BLAKE  | 2001-12-04 00:00:00 |
+| JAMES  | 2001-12-03 00:00:00 |
+| KING   | 2001-11-19 00:00:00 |
+| TURNER | 2001-09-08 00:00:00 |
+| SCOTT  | 2001-06-09 00:00:00 |
+| CLARK  | 2001-05-01 00:00:00 |
+| JONES  | 2001-04-21 00:00:00 |
+| WARD   | 2001-02-22 00:00:00 |
+| ALLEN  | 2001-02-20 00:00:00 |
+| SMITH  | 1999-12-11 00:00:00 |
++--------+---------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename, sal, sal * .1 as PF, sal * .5 as HRA, sal *.3 as DA , PF + HRA + DA as gross  from emp order by gross ;
+ERROR 1054 (42S22): Unknown column 'PF' in 'field list'
+mysql> select ename, sal, sal * .1 as PF, sal * .5 as HRA, sal *.3 as DA , sal * .9 as gross  from emp order by gross ;
++--------+---------+---------+----------+----------+----------+
+| ename  | sal     | PF      | HRA      | DA       | gross    |
++--------+---------+---------+----------+----------+----------+
+| SMITH  |  800.00 |  80.000 |  400.000 |  240.000 |  720.000 |
+| JAMES  |  950.00 |  95.000 |  475.000 |  285.000 |  855.000 |
+| ADAMS  | 1100.00 | 110.000 |  550.000 |  330.000 |  990.000 |
+| WARD   | 1250.00 | 125.000 |  625.000 |  375.000 | 1125.000 |
+| MARTIN | 1250.00 | 125.000 |  625.000 |  375.000 | 1125.000 |
+| MILLER | 1430.00 | 143.000 |  715.000 |  429.000 | 1287.000 |
+| TURNER | 1500.00 | 150.000 |  750.000 |  450.000 | 1350.000 |
+| ALLEN  | 1600.00 | 160.000 |  800.000 |  480.000 | 1440.000 |
+| BLAKE  | 2450.00 | 245.000 | 1225.000 |  735.000 | 2205.000 |
+| CLARK  | 2850.00 | 285.000 | 1425.000 |  855.000 | 2565.000 |
+| JONES  | 2975.00 | 297.500 | 1487.500 |  892.500 | 2677.500 |
+| FORD   | 3000.00 | 300.000 | 1500.000 |  900.000 | 2700.000 |
+| SCOTT  | 3000.00 | 300.000 | 1500.000 |  900.000 | 2700.000 |
+| KING   | 5000.00 | 500.000 | 2500.000 | 1500.000 | 4500.000 |
++--------+---------+---------+----------+----------+----------+
+14 rows in set (0.00 sec)
+
+mysql> select distinct deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct deptno, sum(deptno) from emp group by deptno;
++--------+-------------+
+| deptno | sum(deptno) |
++--------+-------------+
+|     10 |          20 |
+|     20 |         120 |
+|     30 |         180 |
++--------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct deptno, count(deptno) from emp group by deptno;
++--------+---------------+
+| deptno | count(deptno) |
++--------+---------------+
+|     10 |             2 |
+|     20 |             6 |
+|     30 |             6 |
++--------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct deptno, count(deptno) as department_total from emp group by deptno;
++--------+------------------+
+| deptno | department_total |
++--------+------------------+
+|     10 |                2 |
+|     20 |                6 |
+|     30 |                6 |
++--------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> select deptno, sum(sal) as department_total from emp group by deptno;+--------+------------------+
+| deptno | department_total |
++--------+------------------+
+|     10 |          6430.00 |
+|     20 |         13325.00 |
+|     30 |          9400.00 |
++--------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> select deptno, sum(sal) as department_total_salary from emp group by deptno;
++--------+-------------------------+
+| deptno | department_total_salary |
++--------+-------------------------+
+|     10 |                 6430.00 |
+|     20 |                13325.00 |
+|     30 |                 9400.00 |
++--------+-------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select job, count(job) as no_of_emp from emp group by job order by no_of_emp desc;
++-----------+-----------+
+| job       | no_of_emp |
++-----------+-----------+
+| CLERK     |         4 |
+| SALESMAN  |         4 |
+| MANAGER   |         3 |
+| ANALYST   |         2 |
+| PRESIDENT |         1 |
++-----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select job, max(sal) as max_sal, min(sal) as min_sal,sum(sal) as total_sal, avg(sal) as avg_sal from emp group by job;
++-----------+---------+---------+-----------+-------------+
+| job       | max_sal | min_sal | total_sal | avg_sal     |
++-----------+---------+---------+-----------+-------------+
+| ANALYST   | 3000.00 | 3000.00 |   6000.00 | 3000.000000 |
+| CLERK     | 1430.00 |  800.00 |   4280.00 | 1070.000000 |
+| MANAGER   | 2975.00 | 2450.00 |   8275.00 | 2758.333333 |
+| PRESIDENT | 5000.00 | 5000.00 |   5000.00 | 5000.000000 |
+| SALESMAN  | 1600.00 | 1250.00 |   5600.00 | 1400.000000 |
++-----------+---------+---------+-----------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20;
++-----------+---------+---------+-------------+
+| total_sal | max_Sal | min_sal | avg_sal     |
++-----------+---------+---------+-------------+
+|  13325.00 | 3000.00 |  800.00 | 2220.833333 |
++-----------+---------+---------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20 and avg_sal > 1000;
+ERROR 1054 (42S22): Unknown column 'avg_sal' in 'where clause'
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20 and avg_sal > 1000 group by job;
+ERROR 1054 (42S22): Unknown column 'avg_sal' in 'where clause'
+mysql> select job from emp;
++-----------+
+| job       |
++-----------+
+| CLERK     |
+| CLERK     |
+| SALESMAN  |
+| SALESMAN  |
+| MANAGER   |
+| SALESMAN  |
+| MANAGER   |
+| ANALYST   |
+| PRESIDENT |
+| SALESMAN  |
+| CLERK     |
+| CLERK     |
+| ANALYST   |
+| MANAGER   |
++-----------+
+14 rows in set (0.00 sec)
+
+mysql> select job,deptno from emp;
++-----------+--------+
+| job       | deptno |
++-----------+--------+
+| CLERK     |     10 |
+| CLERK     |     20 |
+| SALESMAN  |     30 |
+| SALESMAN  |     30 |
+| MANAGER   |     20 |
+| SALESMAN  |     30 |
+| MANAGER   |     30 |
+| ANALYST   |     20 |
+| PRESIDENT |     10 |
+| SALESMAN  |     30 |
+| CLERK     |     20 |
+| CLERK     |     30 |
+| ANALYST   |     20 |
+| MANAGER   |     20 |
++-----------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20 and avg(sal) > 1000 group by job;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20 and avg(sal) > 1000;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp group by job where deptno =20 and avg(sal) > 1000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where deptno =20 and avg(sal) > 1000' at line 1
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp group by job where deptno =20 and avg(sal) > 1000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where deptno =20 and avg(sal) > 1000' at line 1
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp  where deptno =20 and avg(sal) > 1000 group by jpb;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp  where deptno =20  group by job having avg_sal > 1000;
++-----------+---------+---------+-------------+
+| total_sal | max_Sal | min_sal | avg_sal     |
++-----------+---------+---------+-------------+
+|   6000.00 | 3000.00 | 3000.00 | 3000.000000 |
+|   5425.00 | 2975.00 | 2450.00 | 2712.500000 |
++-----------+---------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> print 'hi'
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'print 'hi'' at line 1
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp right outer join on emp.deptno = dept.deptno where loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where loc = 'boston'' at line 1
+mysql> select ename from emp right outer join on emp.deptno = dept.deptno where loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where loc = 'boston'' at line 1
+mysql> select ename from emp right outer join on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp right join on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp right join on emp emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp right outer join on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp left outer join on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp right outer join emp on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1066 (42000): Not unique table/alias: 'emp'
+mysql> select ename from emp right outer join dept on emp.deptno = dept.deptno where dept.loc = 'boston';
++-------+
+| ename |
++-------+
+| SMITH |
+| JONES |
+| SCOTT |
+| ADAMS |
+| FORD  |
+| BLAKE |
++-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp where deptno=20;
++-------+
+| ename |
++-------+
+| SMITH |
+| JONES |
+| SCOTT |
+| ADAMS |
+| FORD  |
+| BLAKE |
++-------+
+6 rows in set (0.00 sec)
+
+mysql> select deptno, dname, sum(sal) from emp group by deptno;
+ERROR 1054 (42S22): Unknown column 'dname' in 'field list'
+mysql> select deptno, dname, sum(sal) from emp group by deptno right outer join on dept emp.deptno = dept.deptno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'right outer join on dept emp.deptno = dept.deptno' at line 1
+mysql> select deptno, dname, sum(sal) from emp  right outer join on dept emp.deptno = dept.deptno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on dept emp.deptno = dept.deptno' at line 1
+mysql> select deptno, dname, sum(sal) from emp  right outer join on dept emp.deptno = dept.deptno group by deptno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on dept emp.deptno = dept.deptno group by deptno' at line 1
+mysql> select deptno, dname, sum(sal) from emp  right outer join  dept on emp.deptno = dept.deptno group by deptno;
+ERROR 1052 (23000): Column 'deptno' in field list is ambiguous
+mysql> select dept.deptno, dname, sum(sal) from emp  right outer join  dept on emp.deptno = dept.deptno group by deptno;
++--------+----------+----------+
+| deptno | dname    | sum(sal) |
++--------+----------+----------+
+|     10 | ACCOUNTS |  6430.00 |
+|     20 | SALES    | 13325.00 |
+|     30 | ADMIN    |  9400.00 |
+|     40 | RESEARCH |     NULL |
++--------+----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, emp.deptno, loc, dname from emp right outer join dept on dept.dept.deptno = emp.deptno where dept.deptno in (30, 40);
+ERROR 1054 (42S22): Unknown column 'dept.dept.deptno' in 'on clause'
+mysql> select empno, ename, job, mgrid, doj, sal, comm, emp.deptno, loc, dname from emp right outer join dept on dept.deptno = emp.deptno where dept.deptno in (30, 40);
++-------+--------+----------+-------+---------------------+---------+---------+--------+---------+----------+
+| empno | ename  | job      | mgrid | doj                 | sal     | comm    | deptno | loc     | dname    |
++-------+--------+----------+-------+---------------------+---------+---------+--------+---------+----------+
+| 17499 | ALLEN  | SALESMAN | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 | DALLAS  | ADMIN    |
+| 17521 | WARD   | SALESMAN | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 | DALLAS  | ADMIN    |
+| 17654 | MARTIN | SALESMAN | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 | DALLAS  | ADMIN    |
+| 17782 | CLARK  | MANAGER  | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 | DALLAS  | ADMIN    |
+| 17844 | TURNER | SALESMAN | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 | DALLAS  | ADMIN    |
+| 17900 | JAMES  | CLERK    | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 | DALLAS  | ADMIN    |
+|  NULL | NULL   | NULL     |  NULL | NULL                |    NULL |    NULL |   NULL | KOLKATA | RESEARCH |
++-------+--------+----------+-------+---------------------+---------+---------+--------+---------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, emp.deptno, loc, dname from emp right outer join dept on dept.deptno = emp.deptno where emp.deptno in (30, 40);
++-------+--------+----------+-------+---------------------+---------+---------+--------+--------+-------+
+| empno | ename  | job      | mgrid | doj                 | sal     | comm    | deptno | loc    | dname |
++-------+--------+----------+-------+---------------------+---------+---------+--------+--------+-------+
+| 17499 | ALLEN  | SALESMAN | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 | DALLAS | ADMIN |
+| 17521 | WARD   | SALESMAN | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 | DALLAS | ADMIN |
+| 17654 | MARTIN | SALESMAN | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 | DALLAS | ADMIN |
+| 17782 | CLARK  | MANAGER  | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 | DALLAS | ADMIN |
+| 17844 | TURNER | SALESMAN | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 | DALLAS | ADMIN |
+| 17900 | JAMES  | CLERK    | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 | DALLAS | ADMIN |
++-------+--------+----------+-------+---------------------+---------+---------+--------+--------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, b.ename as managerName, b.mgrid as mgrid from emp as a, emp as b where a.empno = b.mgrid ,a.sal < b.sal;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.sal < b.sal' at line 1
+mysql> select a.empno, a.ename, b.ename as managerName, b.mgrid as mgrid from emp as a, emp as b where a.empno = b.mgrid and a.sal < b.sal;
+Empty set (0.00 sec)
+
+mysql> select empno, sal, mgrid from emp;
++-------+---------+-------+
+| empno | sal     | mgrid |
++-------+---------+-------+
+| 17934 | 1430.00 | 17782 |
+| 17369 |  800.00 | 17902 |
+| 17499 | 1600.00 | 17698 |
+| 17521 | 1250.00 | 17698 |
+| 17566 | 2975.00 | 17839 |
+| 17654 | 1250.00 | 17698 |
+| 17782 | 2850.00 | 17839 |
+| 17788 | 3000.00 | 17839 |
+| 17839 | 5000.00 |  NULL |
+| 17844 | 1500.00 | 17698 |
+| 17876 | 1100.00 | 17788 |
+| 17900 |  950.00 | 17900 |
+| 17902 | 3000.00 | 17902 |
+| 17698 | 2450.00 | 17839 |
++-------+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, b.ename as managerName, b.mgrid as mgrid from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
++-------+-------+-------------+-------+
+| empno | ename | managerName | mgrid |
++-------+-------+-------------+-------+
+| 17782 | CLARK | MILLER      | 17782 |
+| 17902 | FORD  | SMITH       | 17902 |
+| 17698 | BLAKE | ALLEN       | 17698 |
+| 17698 | BLAKE | WARD        | 17698 |
+| 17839 | KING  | JONES       | 17839 |
+| 17698 | BLAKE | MARTIN      | 17698 |
+| 17839 | KING  | CLARK       | 17839 |
+| 17839 | KING  | SCOTT       | 17839 |
+| 17698 | BLAKE | TURNER      | 17698 |
+| 17788 | SCOTT | ADAMS       | 17788 |
+| 17839 | KING  | BLAKE       | 17839 |
++-------+-------+-------------+-------+
+11 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
++-------+-------+---------+-------------+-------+
+| empno | ename | sal     | managerName | mgrid |
++-------+-------+---------+-------------+-------+
+| 17782 | CLARK | 2850.00 | MILLER      | 17782 |
+| 17902 | FORD  | 3000.00 | SMITH       | 17902 |
+| 17698 | BLAKE | 2450.00 | ALLEN       | 17698 |
+| 17698 | BLAKE | 2450.00 | WARD        | 17698 |
+| 17839 | KING  | 5000.00 | JONES       | 17839 |
+| 17698 | BLAKE | 2450.00 | MARTIN      | 17698 |
+| 17839 | KING  | 5000.00 | CLARK       | 17839 |
+| 17839 | KING  | 5000.00 | SCOTT       | 17839 |
+| 17698 | BLAKE | 2450.00 | TURNER      | 17698 |
+| 17788 | SCOTT | 3000.00 | ADAMS       | 17788 |
+| 17839 | KING  | 5000.00 | BLAKE       | 17839 |
++-------+-------+---------+-------------+-------+
+11 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid. b.sal from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '. b.sal from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal' at line 1
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
++-------+-------+---------+-------------+-------+---------+
+| empno | ename | sal     | managerName | mgrid | sal     |
++-------+-------+---------+-------------+-------+---------+
+| 17782 | CLARK | 2850.00 | MILLER      | 17782 | 1430.00 |
+| 17902 | FORD  | 3000.00 | SMITH       | 17902 |  800.00 |
+| 17698 | BLAKE | 2450.00 | ALLEN       | 17698 | 1600.00 |
+| 17698 | BLAKE | 2450.00 | WARD        | 17698 | 1250.00 |
+| 17839 | KING  | 5000.00 | JONES       | 17839 | 2975.00 |
+| 17698 | BLAKE | 2450.00 | MARTIN      | 17698 | 1250.00 |
+| 17839 | KING  | 5000.00 | CLARK       | 17839 | 2850.00 |
+| 17839 | KING  | 5000.00 | SCOTT       | 17839 | 3000.00 |
+| 17698 | BLAKE | 2450.00 | TURNER      | 17698 | 1500.00 |
+| 17788 | SCOTT | 3000.00 | ADAMS       | 17788 | 1100.00 |
+| 17839 | KING  | 5000.00 | BLAKE       | 17839 | 2450.00 |
++-------+-------+---------+-------------+-------+---------+
+11 rows in set (0.00 sec)
+
+mysql> select empno, sal, mgrid from emp;
++-------+---------+-------+
+| empno | sal     | mgrid |
++-------+---------+-------+
+| 17934 | 1430.00 | 17782 |
+| 17369 |  800.00 | 17902 |
+| 17499 | 1600.00 | 17698 |
+| 17521 | 1250.00 | 17698 |
+| 17566 | 2975.00 | 17839 |
+| 17654 | 1250.00 | 17698 |
+| 17782 | 2850.00 | 17839 |
+| 17788 | 3000.00 | 17839 |
+| 17839 | 5000.00 |  NULL |
+| 17844 | 1500.00 | 17698 |
+| 17876 | 1100.00 | 17788 |
+| 17900 |  950.00 | 17900 |
+| 17902 | 3000.00 | 17902 |
+| 17698 | 2450.00 | 17839 |
++-------+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select empno, ename, sal, mgrid from emp;
++-------+--------+---------+-------+
+| empno | ename  | sal     | mgrid |
++-------+--------+---------+-------+
+| 17934 | MILLER | 1430.00 | 17782 |
+| 17369 | SMITH  |  800.00 | 17902 |
+| 17499 | ALLEN  | 1600.00 | 17698 |
+| 17521 | WARD   | 1250.00 | 17698 |
+| 17566 | JONES  | 2975.00 | 17839 |
+| 17654 | MARTIN | 1250.00 | 17698 |
+| 17782 | CLARK  | 2850.00 | 17839 |
+| 17788 | SCOTT  | 3000.00 | 17839 |
+| 17839 | KING   | 5000.00 |  NULL |
+| 17844 | TURNER | 1500.00 | 17698 |
+| 17876 | ADAMS  | 1100.00 | 17788 |
+| 17900 | JAMES  |  950.00 | 17900 |
+| 17902 | FORD   | 3000.00 | 17902 |
+| 17698 | BLAKE  | 2450.00 | 17839 |
++-------+--------+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
++-------+-------+---------+-------------+-------+---------+
+| empno | ename | sal     | managerName | mgrid | sal     |
++-------+-------+---------+-------------+-------+---------+
+| 17782 | CLARK | 2850.00 | MILLER      | 17782 | 1430.00 |
+| 17902 | FORD  | 3000.00 | SMITH       | 17902 |  800.00 |
+| 17698 | BLAKE | 2450.00 | ALLEN       | 17698 | 1600.00 |
+| 17698 | BLAKE | 2450.00 | WARD        | 17698 | 1250.00 |
+| 17839 | KING  | 5000.00 | JONES       | 17839 | 2975.00 |
+| 17698 | BLAKE | 2450.00 | MARTIN      | 17698 | 1250.00 |
+| 17839 | KING  | 5000.00 | CLARK       | 17839 | 2850.00 |
+| 17839 | KING  | 5000.00 | SCOTT       | 17839 | 3000.00 |
+| 17698 | BLAKE | 2450.00 | TURNER      | 17698 | 1500.00 |
+| 17788 | SCOTT | 3000.00 | ADAMS       | 17788 | 1100.00 |
+| 17839 | KING  | 5000.00 | BLAKE       | 17839 | 2450.00 |
++-------+-------+---------+-------------+-------+---------+
+11 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno = b.mgrid and a.empno = b.empno and b.sal < a.sal;
+Empty set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno = b.mgrid and a.empno = b.empno and a.sal < b.sal;
+Empty set (0.00 sec)
+
+mysql> select ename, empno, mgrid from emp;
++--------+-------+-------+
+| ename  | empno | mgrid |
++--------+-------+-------+
+| MILLER | 17934 | 17782 |
+| SMITH  | 17369 | 17902 |
+| ALLEN  | 17499 | 17698 |
+| WARD   | 17521 | 17698 |
+| JONES  | 17566 | 17839 |
+| MARTIN | 17654 | 17698 |
+| CLARK  | 17782 | 17839 |
+| SCOTT  | 17788 | 17839 |
+| KING   | 17839 |  NULL |
+| TURNER | 17844 | 17698 |
+| ADAMS  | 17876 | 17788 |
+| JAMES  | 17900 | 17900 |
+| FORD   | 17902 | 17902 |
+| BLAKE  | 17698 | 17839 |
++--------+-------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select ename, empno, mgrid, sal from emp;
++--------+-------+-------+---------+
+| ename  | empno | mgrid | sal     |
++--------+-------+-------+---------+
+| MILLER | 17934 | 17782 | 1430.00 |
+| SMITH  | 17369 | 17902 |  800.00 |
+| ALLEN  | 17499 | 17698 | 1600.00 |
+| WARD   | 17521 | 17698 | 1250.00 |
+| JONES  | 17566 | 17839 | 2975.00 |
+| MARTIN | 17654 | 17698 | 1250.00 |
+| CLARK  | 17782 | 17839 | 2850.00 |
+| SCOTT  | 17788 | 17839 | 3000.00 |
+| KING   | 17839 |  NULL | 5000.00 |
+| TURNER | 17844 | 17698 | 1500.00 |
+| ADAMS  | 17876 | 17788 | 1100.00 |
+| JAMES  | 17900 | 17900 |  950.00 |
+| FORD   | 17902 | 17902 | 3000.00 |
+| BLAKE  | 17698 | 17839 | 2450.00 |
++--------+-------+-------+---------+
+14 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno != b.mgrid and a.empno = b.empno and a.sal < b.sal;
+Empty set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.mgrid = b.empno and a.sal < b.sal;
++-------+--------+---------+-------------+-------+---------+
+| empno | ename  | sal     | managerName | mgrid | sal     |
++-------+--------+---------+-------------+-------+---------+
+| 17934 | MILLER | 1430.00 | CLARK       | 17839 | 2850.00 |
+| 17369 | SMITH  |  800.00 | FORD        | 17902 | 3000.00 |
+| 17499 | ALLEN  | 1600.00 | BLAKE       | 17839 | 2450.00 |
+| 17521 | WARD   | 1250.00 | BLAKE       | 17839 | 2450.00 |
+| 17566 | JONES  | 2975.00 | KING        |  NULL | 5000.00 |
+| 17654 | MARTIN | 1250.00 | BLAKE       | 17839 | 2450.00 |
+| 17782 | CLARK  | 2850.00 | KING        |  NULL | 5000.00 |
+| 17788 | SCOTT  | 3000.00 | KING        |  NULL | 5000.00 |
+| 17844 | TURNER | 1500.00 | BLAKE       | 17839 | 2450.00 |
+| 17876 | ADAMS  | 1100.00 | SCOTT       | 17839 | 3000.00 |
+| 17698 | BLAKE  | 2450.00 | KING        |  NULL | 5000.00 |
++-------+--------+---------+-------------+-------+---------+
+11 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.mgrid = b.empno and a.doj < b.doj;
++-------+--------+---------+-------------+-------+---------+
+| empno | ename  | sal     | managerName | mgrid | sal     |
++-------+--------+---------+-------------+-------+---------+
+| 17369 | SMITH  |  800.00 | FORD        | 17902 | 3000.00 |
+| 17499 | ALLEN  | 1600.00 | BLAKE       | 17839 | 2450.00 |
+| 17521 | WARD   | 1250.00 | BLAKE       | 17839 | 2450.00 |
+| 17566 | JONES  | 2975.00 | KING        |  NULL | 5000.00 |
+| 17782 | CLARK  | 2850.00 | KING        |  NULL | 5000.00 |
+| 17788 | SCOTT  | 3000.00 | KING        |  NULL | 5000.00 |
+| 17844 | TURNER | 1500.00 | BLAKE       | 17839 | 2450.00 |
++-------+--------+---------+-------------+-------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.doj, b.ename as managerName, b.doj as mgr_doj,  from emp as a, emp as b where a.mgrid = b.empno and a.doj < b.doj;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from emp as a, emp as b where a.mgrid = b.empno and a.doj < b.doj' at line 1
+mysql> select a.empno, a.ename, a.doj, b.ename as managerName, b.doj as mgr_doj  from emp as a, emp as b where a.mgrid = b.empno and a.doj < b.doj;
++-------+--------+---------------------+-------------+---------------------+
+| empno | ename  | doj                 | managerName | mgr_doj             |
++-------+--------+---------------------+-------------+---------------------+
+| 17369 | SMITH  | 1999-12-11 00:00:00 | FORD        | 2001-12-04 00:00:00 |
+| 17499 | ALLEN  | 2001-02-20 00:00:00 | BLAKE       | 2001-12-04 00:00:00 |
+| 17521 | WARD   | 2001-02-22 00:00:00 | BLAKE       | 2001-12-04 00:00:00 |
+| 17566 | JONES  | 2001-04-21 00:00:00 | KING        | 2001-11-19 00:00:00 |
+| 17782 | CLARK  | 2001-05-01 00:00:00 | KING        | 2001-11-19 00:00:00 |
+| 17788 | SCOTT  | 2001-06-09 00:00:00 | KING        | 2001-11-19 00:00:00 |
+| 17844 | TURNER | 2001-09-08 00:00:00 | BLAKE       | 2001-12-04 00:00:00 |
++-------+--------+---------------------+-------------+---------------------+
+7 rows in set (0.00 sec)
+
+mysql> select ename from emp where deptno = (select deptno from emp where ename = 'miller');
++--------+
+| ename  |
++--------+
+| MILLER |
+| KING   |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select distinmct ename from emp where deptno = (select deptno from emp where ename = 'miller');
+ERROR 1054 (42S22): Unknown column 'distinmct' in 'field list'
+mysql> select distinct ename from emp where deptno = (select deptno from emp where ename = 'miller');
++--------+
+| ename  |
++--------+
+| MILLER |
+| KING   |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select distinct ename from emp where deptno = (select deptno from emp where ename = 'miller') and ename != 'miller';
++-------+
+| ename |
++-------+
+| KING  |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select ename, nax(sal) from emp
+    -> ;
+ERROR 1305 (42000): FUNCTION assignment.nax does not exist
+mysql> select ename, max(sal) from emp
+    -> ;
++--------+----------+
+| ename  | max(sal) |
++--------+----------+
+| MILLER |  5000.00 |
++--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select sal from emp;
++---------+
+| sal     |
++---------+
+| 1430.00 |
+|  800.00 |
+| 1600.00 |
+| 1250.00 |
+| 2975.00 |
+| 1250.00 |
+| 2850.00 |
+| 3000.00 |
+| 5000.00 |
+| 1500.00 |
+| 1100.00 |
+|  950.00 |
+| 3000.00 |
+| 2450.00 |
++---------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where sal=5000;
++-------+
+| ename |
++-------+
+| KING  |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select ename,sal from emp;
++--------+---------+
+| ename  | sal     |
++--------+---------+
+| MILLER | 1430.00 |
+| SMITH  |  800.00 |
+| ALLEN  | 1600.00 |
+| WARD   | 1250.00 |
+| JONES  | 2975.00 |
+| MARTIN | 1250.00 |
+| CLARK  | 2850.00 |
+| SCOTT  | 3000.00 |
+| KING   | 5000.00 |
+| TURNER | 1500.00 |
+| ADAMS  | 1100.00 |
+| JAMES  |  950.00 |
+| FORD   | 3000.00 |
+| BLAKE  | 2450.00 |
++--------+---------+
+14 rows in set (0.00 sec)
+
+mysql> select name from emp where sal = (select max(sal) from emp);
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select ename from emp where sal = (select max(sal) from emp);
++-------+
+| ename |
++-------+
+| KING  |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select job from emp where sal = (select max(avg(sal)) from emp group by sal);
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select job from emp where sal = (select max(avg(sal)) from emp group by job);
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select avg(sal), job from emp group by job;
++-------------+-----------+
+| avg(sal)    | job       |
++-------------+-----------+
+| 3000.000000 | ANALYST   |
+| 1070.000000 | CLERK     |
+| 2758.333333 | MANAGER   |
+| 5000.000000 | PRESIDENT |
+| 1400.000000 | SALESMAN  |
++-------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select avg(sal) from emp group by job;
++-------------+
+| avg(sal)    |
++-------------+
+| 3000.000000 |
+| 1070.000000 |
+| 2758.333333 |
+| 5000.000000 |
+| 1400.000000 |
++-------------+
+5 rows in set (0.00 sec)
+
+mysql> select max(avg(sal)) from emp group by job;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select max(max_sal) from select avg(sal) as max_sal from emp group by job;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select avg(sal) as max_sal from emp group by job' at line 1
+mysql> select max(max_sal) (from select avg(sal) as max_sal from emp group by job);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(from select avg(sal) as max_sal from emp group by job)' at line 1
+mysql> select max(avg(sal)) from emp where job in (select distinct job from emp);
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select distinct from job from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from job from emp' at line 1
+mysql> select distinct job  from emp;
++-----------+
+| job       |
++-----------+
+| CLERK     |
+| SALESMAN  |
+| MANAGER   |
+| ANALYST   |
+| PRESIDENT |
++-----------+
+5 rows in set (0.00 sec)
+
+mysql> create database assignment
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE TABLE emp
+    -> 
+    -> (empno int PRIMARY KEY ,
+    -> 
+    -> enAME varchar(20) NOT NULL,
+    -> 
+    -> job varchar(20),
+    -> 
+    -> mgrid int,
+    -> 
+    -> doj datetime,
+    -> 
+    -> sql decimal(9,2),
+    -> 
+    -> comm decimal(9,2),
+    -> 
+    -> deptno int);
+ERROR 1046 (3D000): No database selected
+mysql> use assignment;
+Database changed
+mysql> CREATE TABLE emp  (empno int PRIMARY KEY ,  enAME varchar(20) NOT NULL,  job varchar(20),  mgrid int,  doj datetime,  sql decimal(9,2),  comm decimal(9,2),  deptno int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sql decimal(9,2),  comm decimal(9,2),  deptno int)' at line 1
+mysql> CREATE TABLE emp  (empno int PRIMARY KEY ,  ename varchar(20) NOT NULL,  job varchar(20),  mgrid int,  doj datetime,  sal decimal(9,2),  comm decimal(9,2),  deptno int);
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> insert into emp values(17934,'MILLER','CLERK',17782,'01/23/2002',1430,NULL,10);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17369,'SMITH','CLERK',17902,'12/11/1999',800,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17499,'ALLEN','SALESMAN',17698,'02/20/2001',1600,300,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> insert into emp values(17521,'WARD','SALESMAN',17698,'02/22/2001',1250,500,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17566,'JONES','MANAGER',17839,'04/21/2001',2975,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17654,'MARTIN','SALESMAN',17698,'02/02/2002', 1250,1400,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17782,'CLARK', 'MANAGER',17839,'05/01/2001',2850,NULL,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17788,'SCOTT','ANALYST',17839,'06/09/2001',3000,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17839,'KING','PRESIDENT',NULL,'11/19/2001',5000,NULL,10);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17844,'TURNER','SALESMAN',17698,'09/08/2001',1500,0,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17876,'ADAMS', 'CLERK',17788,'01/12/2003',1100,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17900,'JAMES','CLERK',17900,'12/03/2001',950,NULL,30);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17902,'FORD','ANALYST',17902,'12/04/2001',3000,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into emp values(17698,'BLAKE','MANAGER',17839,'12/04/2001',2450,NULL,20);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> CREATE TABLE dept
+    -> 
+    -> (deptno int   PRIMARY KEY ,
+    -> 
+    ->  dname  varchar(20) NOT NULL,
+    -> 
+    ->  loc varchar(20));
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> INSERT INTO dept VALUES(10,'ACCOUNTS','DELHI');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> INSERT INTO dept VALUES(20,'SALES','BOSTON');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> INSERT INTO dept VALUES(30,'ADMIN','DALLAS');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> INSERT INTO dept VALUES(40,'RESEARCH','KOLKATA');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> desc dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | NO   | PRI | NULL    |       |
+| dname  | varchar(20) | NO   |     | NULL    |       |
+| loc    | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 0000-00-00 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 0000-00-00 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 0000-00-00 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 0000-00-00 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 0000-00-00 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 0000-00-00 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 0000-00-00 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select ename from where job = 'analysts' and job = 'salesman';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where job = 'analysts' and job = 'salesman'' at line 1
+mysql> select ename from emp where job = 'analysts' and job = 'salesman';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where job = 'analysts' or job = 'salesman';
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| TURNER |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/2011'
+    -> ;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 0000-00-00 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 0000-00-00 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 0000-00-00 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 0000-00-00 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 0000-00-00 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 0000-00-00 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 0000-00-00 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 0000-00-00 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 0000-00-00 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> 
+mysql> select last_day('23-12-2009');
++------------------------+
+| last_day('23-12-2009') |
++------------------------+
+| NULL                   |
++------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select str_to_date('23/12/1989', '%m/%d/%y');
++---------------------------------------+
+| str_to_date('23/12/1989', '%m/%d/%y') |
++---------------------------------------+
+| NULL                                  |
++---------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select str_to_date('23/12/1989', '%d/%m/%y');
++---------------------------------------+
+| str_to_date('23/12/1989', '%d/%m/%y') |
++---------------------------------------+
+| 2019-12-23                            |
++---------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select str_to_date('23/12/1989', '%d/%m/%Y');
++---------------------------------------+
+| str_to_date('23/12/1989', '%d/%m/%Y') |
++---------------------------------------+
+| 1989-12-23                            |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> delete from emp;
+Query OK, 14 rows affected (0.00 sec)
+
+mysql> insert into emp values(17934,'MILLER','CLERK',17782,str_to_date('01/23/2002', '%m/%d/%Y),1430,NULL,10);
+    '> insert into emp values(17369,'SMITH','CLERK',17902,str_to_date('12/11/1999', '%m/%d/%Y),800,NULL,20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','CLERK',17902,str_to_date('12/11/1999', '%m/%d/%Y),800,NULL,20)' at line 1
+mysql> insert into emp values(17499,'ALLEN','SALESMAN',17698,str_to_date('02/20/2001', '%m/%d/%Y),1600,300,30);
+    '> insert into emp values(17521,'WARD','SALESMAN',17698,str_to_date('02/22/2001', '%m/%d/%Y),1250,500,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','SALESMAN',17698,str_to_date('02/22/2001', '%m/%d/%Y),1250,500,30)' at line 1
+mysql> insert into emp values(17566,'JONES','MANAGER',17839,str_to_date('04/21/2001', '%m/%d/%Y),2975,NULL,20);
+    '> insert into emp values(17654,'MARTIN','SALESMAN',17698,str_to_date('02/02/2002', '%m/%d/%Y), 1250,1400,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','SALESMAN',17698,str_to_date('02/02/2002', '%m/%d/%Y), 1250,1400,30)' at line 1
+mysql> insert into emp values(17782,'CLARK', 'MANAGER',17839,str_to_date('05/01/2001', '%m/%d/%Y),2850,NULL,30);
+    '> insert into emp values(17788,'SCOTT','ANALYST',17839,str_to_date('06/09/2001', '%m/%d/%Y),3000,NULL,20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','ANALYST',17839,str_to_date('06/09/2001', '%m/%d/%Y),3000,NULL,20)' at line 1
+mysql> insert into emp values(17839,'KING','PRESIDENT',NULL,str_to_date('11/19/2001', '%m/%d/%Y),5000,NULL,10);
+    '> insert into emp values(17844,'TURNER','SALESMAN',17698,str_to_date('09/08/2001', '%m/%d/%Y),1500,0,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','SALESMAN',17698,str_to_date('09/08/2001', '%m/%d/%Y),1500,0,30)' at line 1
+mysql> insert into emp values(17876,'ADAMS', 'CLERK',17788,str_to_date('01/12/2003', '%m/%d/%Y),1100,NULL,20);
+    '> insert into emp values(17900,'JAMES','CLERK',17900,str_to_date('12/03/2001', '%m/%d/%Y),950,NULL,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','CLERK',17900,str_to_date('12/03/2001', '%m/%d/%Y),950,NULL,30)' at line 1
+mysql> insert into emp values(17902,'FORD','ANALYST',17902,str_to_date('12/04/2001', '%m/%d/%Y),3000,NULL,20);
+    '> insert into emp values(17698,'BLAKE','MANAGER',17839,str_to_date('12/04/2001', '%m/%d/%Y),2450,NULL,20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','MANAGER',17839,str_to_date('12/04/2001', '%m/%d/%Y),2450,NULL,20)' at line 1
+mysql> insert into emp values(17698,'BLAKE','MANAGER',17839,str_to_date('12/04/2001', '%m/%d/%Y),2450,NULL,20);
+    '> 
+    '> ;
+    '> '
+    -> ^CCtrl-C -- exit!
+Aborted
+kracekumar@python-lover:/var/lib/postgresql/8.4$ mysql -u root -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+kracekumar@python-lover:/var/lib/postgresql/8.4$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 97
+Server version: 5.1.54-1ubuntu4 (Ubuntu)
+
+Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved.
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use assignment;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> insert into emp values(17934,'MILLER','CLERK',17782,str_to_date('01/23/2002', '%m/%d/%Y'),1430,NULL,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17369,'SMITH','CLERK',17902,str_to_date('12/11/1999', '%m/%d/%Y'),800,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17499,'ALLEN','SALESMAN',17698,str_to_date('02/20/2001', '%m/%d/%Y'),1600,300,30);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values(17521,'WARD','SALESMAN',17698,str_to_date('02/22/2001', '%m/%d/%Y'),1250,500,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17566,'JONES','MANAGER',17839,str_to_date('04/21/2001', '%m/%d/%Y'),2975,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17654,'MARTIN','SALESMAN',17698,str_to_date('02/02/2002', '%m/%d/%Y'), 1250,1400,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17782,'CLARK', 'MANAGER',17839,str_to_date('05/01/2001', '%m/%d/%Y'),2850,NULL,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17788,'SCOTT','ANALYST',17839,str_to_date('06/09/2001', '%m/%d/%Y'),3000,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17839,'KING','PRESIDENT',NULL,str_to_date('11/19/2001', '%m/%d/%Y'),5000,NULL,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17844,'TURNER','SALESMAN',17698,str_to_date('09/08/2001', '%m/%d/%Y'),1500,0,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17876,'ADAMS', 'CLERK',17788,str_to_date('01/12/2003', '%m/%d/%Y'),1100,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17900,'JAMES','CLERK',17900,str_to_date('12/03/2001', '%m/%d/%Y'),950,NULL,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17902,'FORD','ANALYST',17902,str_to_date('12/04/2001', '%m/%d/%Y'),3000,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(17698,'BLAKE','MANAGER',17839,str_to_date('12/04/2001', '%m/%d/%Y'),2450,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/2011'
+    -> ;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/1989]'
+    -> ;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/1981]';
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/1981';
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '1981/09/30';
+Empty set (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, deptno from emp where doj < '30/09/1981';
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set, 1 warning (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select name from emp where job != 'manager';
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select ename from emp where job != 'manager';
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
++--------+
+11 rows in set (0.00 sec)
+
+mysql> select ename, job from emp where job != 'manager';
++--------+-----------+
+| ename  | job       |
++--------+-----------+
+| MILLER | CLERK     |
+| SMITH  | CLERK     |
+| ALLEN  | SALESMAN  |
+| WARD   | SALESMAN  |
+| MARTIN | SALESMAN  |
+| SCOTT  | ANALYST   |
+| KING   | PRESIDENT |
+| TURNER | SALESMAN  |
+| ADAMS  | CLERK     |
+| JAMES  | CLERK     |
+| FORD   | ANALYST   |
++--------+-----------+
+11 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select name from emp where empno in (7369, 7521, 7839, 7934,
+    -> 7788
+    -> );
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select ename from emp where empno in (7369, 7521, 7839, 7934, 7788 );
+Empty set (0.00 sec)
+
+mysql> select ename from emp;
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| JONES  |
+| MARTIN |
+| CLARK  |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> select empno from emp;
++-------+
+| empno |
++-------+
+| 17369 |
+| 17499 |
+| 17521 |
+| 17566 |
+| 17654 |
+| 17698 |
+| 17782 |
+| 17788 |
+| 17839 |
+| 17844 |
+| 17876 |
+| 17900 |
+| 17902 |
+| 17934 |
++-------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where empno in (17369, 17521, 17839, 17934, 17788 );
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| WARD   |
+| SCOTT  |
+| KING   |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     10 |
+|     30 |
+|     20 |
+|     30 |
+|     20 |
+|     20 |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where deptno not in (10, 30, 40);
++-------+
+| ename |
++-------+
+| SMITH |
+| JONES |
+| SCOTT |
+| ADAMS |
+| FORD  |
+| BLAKE |
++-------+
+6 rows in set (0.00 sec)
+
+mysql> select ename, deptno from emp where deptno not in (10, 30, 40);
++-------+--------+
+| ename | deptno |
++-------+--------+
+| SMITH |     20 |
+| JONES |     20 |
+| SCOTT |     20 |
+| ADAMS |     20 |
+| FORD  |     20 |
+| BLAKE |     20 |
++-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select ename from emp where doj between '2001/06/30' and 2001/12/31' ;
+    '> '
+    -> '
+    '> '
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' ;
+'
+'
+'' at line 1
+mysql> select ename from emp where doj between '2001/06/30' and '2001/12/31' ;
++--------+
+| ename  |
++--------+
+| KING   |
+| TURNER |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select ename from emp where doj between '2001/06/30' and '2001/12/31' ;
++--------+
+| ename  |
++--------+
+| KING   |
+| TURNER |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_assignment |
++----------------------+
+| dept                 |
+| emp                  |
++----------------------+
+2 rows in set (0.00 sec)
+
+mysql> desc dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | NO   | PRI | NULL    |       |
+| dname  | varchar(20) | NO   |     | NULL    |       |
+| loc    | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select distinct dept from dept;
+ERROR 1054 (42S22): Unknown column 'dept' in 'field list'
+mysql> select distinct dname from dept;
++----------+
+| dname    |
++----------+
+| ACCOUNTS |
+| SALES    |
+| ADMIN    |
+| RESEARCH |
++----------+
+4 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select comm from emp;
++---------+
+| comm    |
++---------+
+|    NULL |
+|    NULL |
+|  300.00 |
+|  500.00 |
+|    NULL |
+| 1400.00 |
+|    NULL |
+|    NULL |
+|    NULL |
+|    0.00 |
+|    NULL |
+|    NULL |
+|    NULL |
+|    NULL |
++---------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where comm is not null;
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| TURNER |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,comm from emp where comm is not null;
++--------+---------+
+| ename  | comm    |
++--------+---------+
+| ALLEN  |  300.00 |
+| WARD   |  500.00 |
+| MARTIN | 1400.00 |
+| TURNER |    0.00 |
++--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,comm from emp where comm >= 0;
++--------+---------+
+| ename  | comm    |
++--------+---------+
+| ALLEN  |  300.00 |
+| WARD   |  500.00 |
+| MARTIN | 1400.00 |
+| TURNER |    0.00 |
++--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,comm from emp where comm > 0;
++--------+---------+
+| ename  | comm    |
++--------+---------+
+| ALLEN  |  300.00 |
+| WARD   |  500.00 |
+| MARTIN | 1400.00 |
++--------+---------+
+3 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> selet mgrid from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selet mgrid from emp' at line 1
+mysql> select mgrid from emp;
++-------+
+| mgrid |
++-------+
+| 17782 |
+| 17902 |
+| 17698 |
+| 17698 |
+| 17839 |
+| 17698 |
+| 17839 |
+| 17839 |
+|  NULL |
+| 17698 |
+| 17788 |
+| 17900 |
+| 17902 |
+| 17839 |
++-------+
+14 rows in set (0.00 sec)
+
+mysql> desc  dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | NO   | PRI | NULL    |       |
+| dname  | varchar(20) | NO   |     | NULL    |       |
+| loc    | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select mgrid from emp;
++-------+
+| mgrid |
++-------+
+| 17782 |
+| 17902 |
+| 17698 |
+| 17698 |
+| 17839 |
+| 17698 |
+| 17839 |
+| 17839 |
+|  NULL |
+| 17698 |
+| 17788 |
+| 17900 |
+| 17902 |
+| 17839 |
++-------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where mgrid is null;
++-------+
+| ename |
++-------+
+| KING  |
++-------+
+1 row in set (0.00 sec)
+
+mysql> descemp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'descemp' at line 1
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     10 |
+|     30 |
+|     20 |
+|     30 |
+|     20 |
+|     20 |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     10 |
+|     30 |
+|     20 |
+|     30 |
+|     20 |
+|     20 |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> desc dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | NO   | PRI | NULL    |       |
+| dname  | varchar(20) | NO   |     | NULL    |       |
+| loc    | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select*  dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dept' at line 1
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> show create table emp;
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                                                                                                                                                                                                                                             |
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| emp   | CREATE TABLE `emp` (
+  `empno` int(11) NOT NULL,
+  `ename` varchar(20) NOT NULL,
+  `job` varchar(20) DEFAULT NULL,
+  `mgrid` int(11) DEFAULT NULL,
+  `doj` datetime DEFAULT NULL,
+  `sal` decimal(9,2) DEFAULT NULL,
+  `comm` decimal(9,2) DEFAULT NULL,
+  `deptno` int(11) DEFAULT NULL,
+  PRIMARY KEY (`empno`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 |
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ename from emp where deptno is null;
+Empty set (0.00 sec)
+
+mysql> select ename from emp where comm is not null;
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| TURNER |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp;
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| JONES  |
+| MARTIN |
+| CLARK  |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '%s';
++-------+
+| ename |
++-------+
+| JONES |
+| ADAMS |
+| JAMES |
++-------+
+3 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like 's%';
++-------+
+| ename |
++-------+
+| SMITH |
+| SCOTT |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '%s%';
++-------+
+| ename |
++-------+
+| SMITH |
+| JONES |
+| SCOTT |
+| ADAMS |
+| JAMES |
++-------+
+5 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '_i';
+Empty set (0.00 sec)
+
+mysql> select ename from emp;
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| JONES  |
+| MARTIN |
+| CLARK  |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
+| BLAKE  |
++--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '__i';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like 'i';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like 'i%';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like '%i';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like '%i%';
++--------+
+| ename  |
++--------+
+| MILLER |
+| SMITH  |
+| MARTIN |
+| KING   |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '_i%';
++--------+
+| ename  |
++--------+
+| MILLER |
+| KING   |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select count(ename) from emp
+    -> ;
++--------------+
+| count(ename) |
++--------------+
+|           14 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select count(ename) as total_employees_in_the_company from emp;
++--------------------------------+
+| total_employees_in_the_company |
++--------------------------------+
+|                             14 |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select count(distinct job) from emp;
++---------------------+
+| count(distinct job) |
++---------------------+
+|                   5 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select (distinct job) from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'distinct job) from emp' at line 1
+mysql> select distinct job from emp;
++-----------+
+| job       |
++-----------+
+| CLERK     |
+| SALESMAN  |
+| MANAGER   |
+| ANALYST   |
+| PRESIDENT |
++-----------+
+5 rows in set (0.00 sec)
+
+mysql> select count(distinct job) from emp;
++---------------------+
+| count(distinct job) |
++---------------------+
+|                   5 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select sum(sal) deom emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'emp' at line 1
+mysql> select sum(sal) from emp;
++----------+
+| sum(sal) |
++----------+
+| 29155.00 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select max(sal) as max_salary, min(sal) as min_salary, avg(sal) as avg_salary from emp;
++------------+------------+-------------+
+| max_salary | min_salary | avg_salary  |
++------------+------------+-------------+
+|    5000.00 |     800.00 | 2082.500000 |
++------------+------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(sal) as salesman_max_Salary where job = 'salesman';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where job = 'salesman'' at line 1
+mysql> select max(sal) as salesman_max_Salary from emp where job = 'salesman';
++---------------------+
+| salesman_max_Salary |
++---------------------+
+|             1600.00 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select max(sal) as dept20_max_Sal, avg(sal) from emp where deptno = 20;
++----------------+-------------+
+| dept20_max_Sal | avg(sal)    |
++----------------+-------------+
+|        3000.00 | 2220.833333 |
++----------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(sal) as dept20_max_Sal, avg(sal) as dept20_avg_sal from emp where deptno = 20;
++----------------+----------------+
+| dept20_max_Sal | dept20_avg_sal |
++----------------+----------------+
+|        3000.00 |    2220.833333 |
++----------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> select ename, sal, sal * .10 as PF from emp;
++--------+---------+----------+
+| ename  | sal     | PF       |
++--------+---------+----------+
+| MILLER | 1430.00 | 143.0000 |
+| SMITH  |  800.00 |  80.0000 |
+| ALLEN  | 1600.00 | 160.0000 |
+| WARD   | 1250.00 | 125.0000 |
+| JONES  | 2975.00 | 297.5000 |
+| MARTIN | 1250.00 | 125.0000 |
+| CLARK  | 2850.00 | 285.0000 |
+| SCOTT  | 3000.00 | 300.0000 |
+| KING   | 5000.00 | 500.0000 |
+| TURNER | 1500.00 | 150.0000 |
+| ADAMS  | 1100.00 | 110.0000 |
+| JAMES  |  950.00 |  95.0000 |
+| FORD   | 3000.00 | 300.0000 |
+| BLAKE  | 2450.00 | 245.0000 |
++--------+---------+----------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp order by sal desc;
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| empno | ename  | job       | mgrid | doj                 | sal     | comm    | deptno |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+| 17839 | KING   | PRESIDENT |  NULL | 2001-11-19 00:00:00 | 5000.00 |    NULL |     10 |
+| 17788 | SCOTT  | ANALYST   | 17839 | 2001-06-09 00:00:00 | 3000.00 |    NULL |     20 |
+| 17902 | FORD   | ANALYST   | 17902 | 2001-12-04 00:00:00 | 3000.00 |    NULL |     20 |
+| 17566 | JONES  | MANAGER   | 17839 | 2001-04-21 00:00:00 | 2975.00 |    NULL |     20 |
+| 17782 | CLARK  | MANAGER   | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 |
+| 17698 | BLAKE  | MANAGER   | 17839 | 2001-12-04 00:00:00 | 2450.00 |    NULL |     20 |
+| 17499 | ALLEN  | SALESMAN  | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 |
+| 17844 | TURNER | SALESMAN  | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 |
+| 17934 | MILLER | CLERK     | 17782 | 2002-01-23 00:00:00 | 1430.00 |    NULL |     10 |
+| 17654 | MARTIN | SALESMAN  | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 |
+| 17521 | WARD   | SALESMAN  | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 |
+| 17876 | ADAMS  | CLERK     | 17788 | 2003-01-12 00:00:00 | 1100.00 |    NULL |     20 |
+| 17900 | JAMES  | CLERK     | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 |
+| 17369 | SMITH  | CLERK     | 17902 | 1999-12-11 00:00:00 |  800.00 |    NULL |     20 |
++-------+--------+-----------+-------+---------------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> 
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select ename, doj from emp order by doj desc;
++--------+---------------------+
+| ename  | doj                 |
++--------+---------------------+
+| ADAMS  | 2003-01-12 00:00:00 |
+| MARTIN | 2002-02-02 00:00:00 |
+| MILLER | 2002-01-23 00:00:00 |
+| FORD   | 2001-12-04 00:00:00 |
+| BLAKE  | 2001-12-04 00:00:00 |
+| JAMES  | 2001-12-03 00:00:00 |
+| KING   | 2001-11-19 00:00:00 |
+| TURNER | 2001-09-08 00:00:00 |
+| SCOTT  | 2001-06-09 00:00:00 |
+| CLARK  | 2001-05-01 00:00:00 |
+| JONES  | 2001-04-21 00:00:00 |
+| WARD   | 2001-02-22 00:00:00 |
+| ALLEN  | 2001-02-20 00:00:00 |
+| SMITH  | 1999-12-11 00:00:00 |
++--------+---------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename, sal, sal * .1 as PF, sal * .5 as HRA, sal *.3 as DA , PF + HRA + DA as gross  from emp order by gross ;
+ERROR 1054 (42S22): Unknown column 'PF' in 'field list'
+mysql> select ename, sal, sal * .1 as PF, sal * .5 as HRA, sal *.3 as DA , sal * .9 as gross  from emp order by gross ;
++--------+---------+---------+----------+----------+----------+
+| ename  | sal     | PF      | HRA      | DA       | gross    |
++--------+---------+---------+----------+----------+----------+
+| SMITH  |  800.00 |  80.000 |  400.000 |  240.000 |  720.000 |
+| JAMES  |  950.00 |  95.000 |  475.000 |  285.000 |  855.000 |
+| ADAMS  | 1100.00 | 110.000 |  550.000 |  330.000 |  990.000 |
+| WARD   | 1250.00 | 125.000 |  625.000 |  375.000 | 1125.000 |
+| MARTIN | 1250.00 | 125.000 |  625.000 |  375.000 | 1125.000 |
+| MILLER | 1430.00 | 143.000 |  715.000 |  429.000 | 1287.000 |
+| TURNER | 1500.00 | 150.000 |  750.000 |  450.000 | 1350.000 |
+| ALLEN  | 1600.00 | 160.000 |  800.000 |  480.000 | 1440.000 |
+| BLAKE  | 2450.00 | 245.000 | 1225.000 |  735.000 | 2205.000 |
+| CLARK  | 2850.00 | 285.000 | 1425.000 |  855.000 | 2565.000 |
+| JONES  | 2975.00 | 297.500 | 1487.500 |  892.500 | 2677.500 |
+| FORD   | 3000.00 | 300.000 | 1500.000 |  900.000 | 2700.000 |
+| SCOTT  | 3000.00 | 300.000 | 1500.000 |  900.000 | 2700.000 |
+| KING   | 5000.00 | 500.000 | 2500.000 | 1500.000 | 4500.000 |
++--------+---------+---------+----------+----------+----------+
+14 rows in set (0.00 sec)
+
+mysql> select distinct deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct deptno, sum(deptno) from emp group by deptno;
++--------+-------------+
+| deptno | sum(deptno) |
++--------+-------------+
+|     10 |          20 |
+|     20 |         120 |
+|     30 |         180 |
++--------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct deptno, count(deptno) from emp group by deptno;
++--------+---------------+
+| deptno | count(deptno) |
++--------+---------------+
+|     10 |             2 |
+|     20 |             6 |
+|     30 |             6 |
++--------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct deptno, count(deptno) as department_total from emp group by deptno;
++--------+------------------+
+| deptno | department_total |
++--------+------------------+
+|     10 |                2 |
+|     20 |                6 |
+|     30 |                6 |
++--------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> select deptno, sum(sal) as department_total from emp group by deptno;+--------+------------------+
+| deptno | department_total |
++--------+------------------+
+|     10 |          6430.00 |
+|     20 |         13325.00 |
+|     30 |          9400.00 |
++--------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> select deptno, sum(sal) as department_total_salary from emp group by deptno;
++--------+-------------------------+
+| deptno | department_total_salary |
++--------+-------------------------+
+|     10 |                 6430.00 |
+|     20 |                13325.00 |
+|     30 |                 9400.00 |
++--------+-------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select job, count(job) as no_of_emp from emp group by job order by no_of_emp desc;
++-----------+-----------+
+| job       | no_of_emp |
++-----------+-----------+
+| CLERK     |         4 |
+| SALESMAN  |         4 |
+| MANAGER   |         3 |
+| ANALYST   |         2 |
+| PRESIDENT |         1 |
++-----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select job, max(sal) as max_sal, min(sal) as min_sal,sum(sal) as total_sal, avg(sal) as avg_sal from emp group by job;
++-----------+---------+---------+-----------+-------------+
+| job       | max_sal | min_sal | total_sal | avg_sal     |
++-----------+---------+---------+-----------+-------------+
+| ANALYST   | 3000.00 | 3000.00 |   6000.00 | 3000.000000 |
+| CLERK     | 1430.00 |  800.00 |   4280.00 | 1070.000000 |
+| MANAGER   | 2975.00 | 2450.00 |   8275.00 | 2758.333333 |
+| PRESIDENT | 5000.00 | 5000.00 |   5000.00 | 5000.000000 |
+| SALESMAN  | 1600.00 | 1250.00 |   5600.00 | 1400.000000 |
++-----------+---------+---------+-----------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20;
++-----------+---------+---------+-------------+
+| total_sal | max_Sal | min_sal | avg_sal     |
++-----------+---------+---------+-------------+
+|  13325.00 | 3000.00 |  800.00 | 2220.833333 |
++-----------+---------+---------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20 and avg_sal > 1000;
+ERROR 1054 (42S22): Unknown column 'avg_sal' in 'where clause'
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20 and avg_sal > 1000 group by job;
+ERROR 1054 (42S22): Unknown column 'avg_sal' in 'where clause'
+mysql> select job from emp;
++-----------+
+| job       |
++-----------+
+| CLERK     |
+| CLERK     |
+| SALESMAN  |
+| SALESMAN  |
+| MANAGER   |
+| SALESMAN  |
+| MANAGER   |
+| ANALYST   |
+| PRESIDENT |
+| SALESMAN  |
+| CLERK     |
+| CLERK     |
+| ANALYST   |
+| MANAGER   |
++-----------+
+14 rows in set (0.00 sec)
+
+mysql> select job,deptno from emp;
++-----------+--------+
+| job       | deptno |
++-----------+--------+
+| CLERK     |     10 |
+| CLERK     |     20 |
+| SALESMAN  |     30 |
+| SALESMAN  |     30 |
+| MANAGER   |     20 |
+| SALESMAN  |     30 |
+| MANAGER   |     30 |
+| ANALYST   |     20 |
+| PRESIDENT |     10 |
+| SALESMAN  |     30 |
+| CLERK     |     20 |
+| CLERK     |     30 |
+| ANALYST   |     20 |
+| MANAGER   |     20 |
++-----------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20 and avg(sal) > 1000 group by job;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp where deptno =20 and avg(sal) > 1000;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp group by job where deptno =20 and avg(sal) > 1000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where deptno =20 and avg(sal) > 1000' at line 1
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp group by job where deptno =20 and avg(sal) > 1000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where deptno =20 and avg(sal) > 1000' at line 1
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp  where deptno =20 and avg(sal) > 1000 group by jpb;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select sum(sal) as total_sal, max(sal) as max_Sal, min(sal) as min_sal, avg(sal) as avg_sal from emp  where deptno =20  group by job having avg_sal > 1000;
++-----------+---------+---------+-------------+
+| total_sal | max_Sal | min_sal | avg_sal     |
++-----------+---------+---------+-------------+
+|   6000.00 | 3000.00 | 3000.00 | 3000.000000 |
+|   5425.00 | 2975.00 | 2450.00 | 2712.500000 |
++-----------+---------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> print 'hi'
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'print 'hi'' at line 1
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp right outer join on emp.deptno = dept.deptno where loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where loc = 'boston'' at line 1
+mysql> select ename from emp right outer join on emp.deptno = dept.deptno where loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where loc = 'boston'' at line 1
+mysql> select ename from emp right outer join on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp right join on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp right join on emp emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp right outer join on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp left outer join on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on emp.deptno = dept.deptno where dept.loc = 'boston'' at line 1
+mysql> select ename from emp right outer join emp on emp.deptno = dept.deptno where dept.loc = 'boston';
+ERROR 1066 (42000): Not unique table/alias: 'emp'
+mysql> select ename from emp right outer join dept on emp.deptno = dept.deptno where dept.loc = 'boston';
++-------+
+| ename |
++-------+
+| SMITH |
+| JONES |
+| SCOTT |
+| ADAMS |
+| FORD  |
+| BLAKE |
++-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+----------+---------+
+| deptno | dname    | loc     |
++--------+----------+---------+
+|     10 | ACCOUNTS | DELHI   |
+|     20 | SALES    | BOSTON  |
+|     30 | ADMIN    | DALLAS  |
+|     40 | RESEARCH | KOLKATA |
++--------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp where deptno=20;
++-------+
+| ename |
++-------+
+| SMITH |
+| JONES |
+| SCOTT |
+| ADAMS |
+| FORD  |
+| BLAKE |
++-------+
+6 rows in set (0.00 sec)
+
+mysql> select deptno, dname, sum(sal) from emp group by deptno;
+ERROR 1054 (42S22): Unknown column 'dname' in 'field list'
+mysql> select deptno, dname, sum(sal) from emp group by deptno right outer join on dept emp.deptno = dept.deptno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'right outer join on dept emp.deptno = dept.deptno' at line 1
+mysql> select deptno, dname, sum(sal) from emp  right outer join on dept emp.deptno = dept.deptno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on dept emp.deptno = dept.deptno' at line 1
+mysql> select deptno, dname, sum(sal) from emp  right outer join on dept emp.deptno = dept.deptno group by deptno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on dept emp.deptno = dept.deptno group by deptno' at line 1
+mysql> select deptno, dname, sum(sal) from emp  right outer join  dept on emp.deptno = dept.deptno group by deptno;
+ERROR 1052 (23000): Column 'deptno' in field list is ambiguous
+mysql> select dept.deptno, dname, sum(sal) from emp  right outer join  dept on emp.deptno = dept.deptno group by deptno;
++--------+----------+----------+
+| deptno | dname    | sum(sal) |
++--------+----------+----------+
+|     10 | ACCOUNTS |  6430.00 |
+|     20 | SALES    | 13325.00 |
+|     30 | ADMIN    |  9400.00 |
+|     40 | RESEARCH |     NULL |
++--------+----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, emp.deptno, loc, dname from emp right outer join dept on dept.dept.deptno = emp.deptno where dept.deptno in (30, 40);
+ERROR 1054 (42S22): Unknown column 'dept.dept.deptno' in 'on clause'
+mysql> select empno, ename, job, mgrid, doj, sal, comm, emp.deptno, loc, dname from emp right outer join dept on dept.deptno = emp.deptno where dept.deptno in (30, 40);
++-------+--------+----------+-------+---------------------+---------+---------+--------+---------+----------+
+| empno | ename  | job      | mgrid | doj                 | sal     | comm    | deptno | loc     | dname    |
++-------+--------+----------+-------+---------------------+---------+---------+--------+---------+----------+
+| 17499 | ALLEN  | SALESMAN | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 | DALLAS  | ADMIN    |
+| 17521 | WARD   | SALESMAN | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 | DALLAS  | ADMIN    |
+| 17654 | MARTIN | SALESMAN | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 | DALLAS  | ADMIN    |
+| 17782 | CLARK  | MANAGER  | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 | DALLAS  | ADMIN    |
+| 17844 | TURNER | SALESMAN | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 | DALLAS  | ADMIN    |
+| 17900 | JAMES  | CLERK    | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 | DALLAS  | ADMIN    |
+|  NULL | NULL   | NULL     |  NULL | NULL                |    NULL |    NULL |   NULL | KOLKATA | RESEARCH |
++-------+--------+----------+-------+---------------------+---------+---------+--------+---------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select empno, ename, job, mgrid, doj, sal, comm, emp.deptno, loc, dname from emp right outer join dept on dept.deptno = emp.deptno where emp.deptno in (30, 40);
++-------+--------+----------+-------+---------------------+---------+---------+--------+--------+-------+
+| empno | ename  | job      | mgrid | doj                 | sal     | comm    | deptno | loc    | dname |
++-------+--------+----------+-------+---------------------+---------+---------+--------+--------+-------+
+| 17499 | ALLEN  | SALESMAN | 17698 | 2001-02-20 00:00:00 | 1600.00 |  300.00 |     30 | DALLAS | ADMIN |
+| 17521 | WARD   | SALESMAN | 17698 | 2001-02-22 00:00:00 | 1250.00 |  500.00 |     30 | DALLAS | ADMIN |
+| 17654 | MARTIN | SALESMAN | 17698 | 2002-02-02 00:00:00 | 1250.00 | 1400.00 |     30 | DALLAS | ADMIN |
+| 17782 | CLARK  | MANAGER  | 17839 | 2001-05-01 00:00:00 | 2850.00 |    NULL |     30 | DALLAS | ADMIN |
+| 17844 | TURNER | SALESMAN | 17698 | 2001-09-08 00:00:00 | 1500.00 |    0.00 |     30 | DALLAS | ADMIN |
+| 17900 | JAMES  | CLERK    | 17900 | 2001-12-03 00:00:00 |  950.00 |    NULL |     30 | DALLAS | ADMIN |
++-------+--------+----------+-------+---------------------+---------+---------+--------+--------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc emp;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int(11)      | NO   | PRI | NULL    |       |
+| ename  | varchar(20)  | NO   |     | NULL    |       |
+| job    | varchar(20)  | YES  |     | NULL    |       |
+| mgrid  | int(11)      | YES  |     | NULL    |       |
+| doj    | datetime     | YES  |     | NULL    |       |
+| sal    | decimal(9,2) | YES  |     | NULL    |       |
+| comm   | decimal(9,2) | YES  |     | NULL    |       |
+| deptno | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, b.ename as managerName, b.mgrid as mgrid from emp as a, emp as b where a.empno = b.mgrid ,a.sal < b.sal;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.sal < b.sal' at line 1
+mysql> select a.empno, a.ename, b.ename as managerName, b.mgrid as mgrid from emp as a, emp as b where a.empno = b.mgrid and a.sal < b.sal;
+Empty set (0.00 sec)
+
+mysql> select empno, sal, mgrid from emp;
++-------+---------+-------+
+| empno | sal     | mgrid |
++-------+---------+-------+
+| 17934 | 1430.00 | 17782 |
+| 17369 |  800.00 | 17902 |
+| 17499 | 1600.00 | 17698 |
+| 17521 | 1250.00 | 17698 |
+| 17566 | 2975.00 | 17839 |
+| 17654 | 1250.00 | 17698 |
+| 17782 | 2850.00 | 17839 |
+| 17788 | 3000.00 | 17839 |
+| 17839 | 5000.00 |  NULL |
+| 17844 | 1500.00 | 17698 |
+| 17876 | 1100.00 | 17788 |
+| 17900 |  950.00 | 17900 |
+| 17902 | 3000.00 | 17902 |
+| 17698 | 2450.00 | 17839 |
++-------+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, b.ename as managerName, b.mgrid as mgrid from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
++-------+-------+-------------+-------+
+| empno | ename | managerName | mgrid |
++-------+-------+-------------+-------+
+| 17782 | CLARK | MILLER      | 17782 |
+| 17902 | FORD  | SMITH       | 17902 |
+| 17698 | BLAKE | ALLEN       | 17698 |
+| 17698 | BLAKE | WARD        | 17698 |
+| 17839 | KING  | JONES       | 17839 |
+| 17698 | BLAKE | MARTIN      | 17698 |
+| 17839 | KING  | CLARK       | 17839 |
+| 17839 | KING  | SCOTT       | 17839 |
+| 17698 | BLAKE | TURNER      | 17698 |
+| 17788 | SCOTT | ADAMS       | 17788 |
+| 17839 | KING  | BLAKE       | 17839 |
++-------+-------+-------------+-------+
+11 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
++-------+-------+---------+-------------+-------+
+| empno | ename | sal     | managerName | mgrid |
++-------+-------+---------+-------------+-------+
+| 17782 | CLARK | 2850.00 | MILLER      | 17782 |
+| 17902 | FORD  | 3000.00 | SMITH       | 17902 |
+| 17698 | BLAKE | 2450.00 | ALLEN       | 17698 |
+| 17698 | BLAKE | 2450.00 | WARD        | 17698 |
+| 17839 | KING  | 5000.00 | JONES       | 17839 |
+| 17698 | BLAKE | 2450.00 | MARTIN      | 17698 |
+| 17839 | KING  | 5000.00 | CLARK       | 17839 |
+| 17839 | KING  | 5000.00 | SCOTT       | 17839 |
+| 17698 | BLAKE | 2450.00 | TURNER      | 17698 |
+| 17788 | SCOTT | 3000.00 | ADAMS       | 17788 |
+| 17839 | KING  | 5000.00 | BLAKE       | 17839 |
++-------+-------+---------+-------------+-------+
+11 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid. b.sal from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '. b.sal from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal' at line 1
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
++-------+-------+---------+-------------+-------+---------+
+| empno | ename | sal     | managerName | mgrid | sal     |
++-------+-------+---------+-------------+-------+---------+
+| 17782 | CLARK | 2850.00 | MILLER      | 17782 | 1430.00 |
+| 17902 | FORD  | 3000.00 | SMITH       | 17902 |  800.00 |
+| 17698 | BLAKE | 2450.00 | ALLEN       | 17698 | 1600.00 |
+| 17698 | BLAKE | 2450.00 | WARD        | 17698 | 1250.00 |
+| 17839 | KING  | 5000.00 | JONES       | 17839 | 2975.00 |
+| 17698 | BLAKE | 2450.00 | MARTIN      | 17698 | 1250.00 |
+| 17839 | KING  | 5000.00 | CLARK       | 17839 | 2850.00 |
+| 17839 | KING  | 5000.00 | SCOTT       | 17839 | 3000.00 |
+| 17698 | BLAKE | 2450.00 | TURNER      | 17698 | 1500.00 |
+| 17788 | SCOTT | 3000.00 | ADAMS       | 17788 | 1100.00 |
+| 17839 | KING  | 5000.00 | BLAKE       | 17839 | 2450.00 |
++-------+-------+---------+-------------+-------+---------+
+11 rows in set (0.00 sec)
+
+mysql> select empno, sal, mgrid from emp;
++-------+---------+-------+
+| empno | sal     | mgrid |
++-------+---------+-------+
+| 17934 | 1430.00 | 17782 |
+| 17369 |  800.00 | 17902 |
+| 17499 | 1600.00 | 17698 |
+| 17521 | 1250.00 | 17698 |
+| 17566 | 2975.00 | 17839 |
+| 17654 | 1250.00 | 17698 |
+| 17782 | 2850.00 | 17839 |
+| 17788 | 3000.00 | 17839 |
+| 17839 | 5000.00 |  NULL |
+| 17844 | 1500.00 | 17698 |
+| 17876 | 1100.00 | 17788 |
+| 17900 |  950.00 | 17900 |
+| 17902 | 3000.00 | 17902 |
+| 17698 | 2450.00 | 17839 |
++-------+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select empno, ename, sal, mgrid from emp;
++-------+--------+---------+-------+
+| empno | ename  | sal     | mgrid |
++-------+--------+---------+-------+
+| 17934 | MILLER | 1430.00 | 17782 |
+| 17369 | SMITH  |  800.00 | 17902 |
+| 17499 | ALLEN  | 1600.00 | 17698 |
+| 17521 | WARD   | 1250.00 | 17698 |
+| 17566 | JONES  | 2975.00 | 17839 |
+| 17654 | MARTIN | 1250.00 | 17698 |
+| 17782 | CLARK  | 2850.00 | 17839 |
+| 17788 | SCOTT  | 3000.00 | 17839 |
+| 17839 | KING   | 5000.00 |  NULL |
+| 17844 | TURNER | 1500.00 | 17698 |
+| 17876 | ADAMS  | 1100.00 | 17788 |
+| 17900 | JAMES  |  950.00 | 17900 |
+| 17902 | FORD   | 3000.00 | 17902 |
+| 17698 | BLAKE  | 2450.00 | 17839 |
++-------+--------+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno = b.mgrid and b.sal < a.sal;
++-------+-------+---------+-------------+-------+---------+
+| empno | ename | sal     | managerName | mgrid | sal     |
++-------+-------+---------+-------------+-------+---------+
+| 17782 | CLARK | 2850.00 | MILLER      | 17782 | 1430.00 |
+| 17902 | FORD  | 3000.00 | SMITH       | 17902 |  800.00 |
+| 17698 | BLAKE | 2450.00 | ALLEN       | 17698 | 1600.00 |
+| 17698 | BLAKE | 2450.00 | WARD        | 17698 | 1250.00 |
+| 17839 | KING  | 5000.00 | JONES       | 17839 | 2975.00 |
+| 17698 | BLAKE | 2450.00 | MARTIN      | 17698 | 1250.00 |
+| 17839 | KING  | 5000.00 | CLARK       | 17839 | 2850.00 |
+| 17839 | KING  | 5000.00 | SCOTT       | 17839 | 3000.00 |
+| 17698 | BLAKE | 2450.00 | TURNER      | 17698 | 1500.00 |
+| 17788 | SCOTT | 3000.00 | ADAMS       | 17788 | 1100.00 |
+| 17839 | KING  | 5000.00 | BLAKE       | 17839 | 2450.00 |
++-------+-------+---------+-------------+-------+---------+
+11 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno = b.mgrid and a.empno = b.empno and b.sal < a.sal;
+Empty set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno = b.mgrid and a.empno = b.empno and a.sal < b.sal;
+Empty set (0.00 sec)
+
+mysql> select ename, empno, mgrid from emp;
++--------+-------+-------+
+| ename  | empno | mgrid |
++--------+-------+-------+
+| MILLER | 17934 | 17782 |
+| SMITH  | 17369 | 17902 |
+| ALLEN  | 17499 | 17698 |
+| WARD   | 17521 | 17698 |
+| JONES  | 17566 | 17839 |
+| MARTIN | 17654 | 17698 |
+| CLARK  | 17782 | 17839 |
+| SCOTT  | 17788 | 17839 |
+| KING   | 17839 |  NULL |
+| TURNER | 17844 | 17698 |
+| ADAMS  | 17876 | 17788 |
+| JAMES  | 17900 | 17900 |
+| FORD   | 17902 | 17902 |
+| BLAKE  | 17698 | 17839 |
++--------+-------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select ename, empno, mgrid, sal from emp;
++--------+-------+-------+---------+
+| ename  | empno | mgrid | sal     |
++--------+-------+-------+---------+
+| MILLER | 17934 | 17782 | 1430.00 |
+| SMITH  | 17369 | 17902 |  800.00 |
+| ALLEN  | 17499 | 17698 | 1600.00 |
+| WARD   | 17521 | 17698 | 1250.00 |
+| JONES  | 17566 | 17839 | 2975.00 |
+| MARTIN | 17654 | 17698 | 1250.00 |
+| CLARK  | 17782 | 17839 | 2850.00 |
+| SCOTT  | 17788 | 17839 | 3000.00 |
+| KING   | 17839 |  NULL | 5000.00 |
+| TURNER | 17844 | 17698 | 1500.00 |
+| ADAMS  | 17876 | 17788 | 1100.00 |
+| JAMES  | 17900 | 17900 |  950.00 |
+| FORD   | 17902 | 17902 | 3000.00 |
+| BLAKE  | 17698 | 17839 | 2450.00 |
++--------+-------+-------+---------+
+14 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.empno != b.mgrid and a.empno = b.empno and a.sal < b.sal;
+Empty set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.mgrid = b.empno and a.sal < b.sal;
++-------+--------+---------+-------------+-------+---------+
+| empno | ename  | sal     | managerName | mgrid | sal     |
++-------+--------+---------+-------------+-------+---------+
+| 17934 | MILLER | 1430.00 | CLARK       | 17839 | 2850.00 |
+| 17369 | SMITH  |  800.00 | FORD        | 17902 | 3000.00 |
+| 17499 | ALLEN  | 1600.00 | BLAKE       | 17839 | 2450.00 |
+| 17521 | WARD   | 1250.00 | BLAKE       | 17839 | 2450.00 |
+| 17566 | JONES  | 2975.00 | KING        |  NULL | 5000.00 |
+| 17654 | MARTIN | 1250.00 | BLAKE       | 17839 | 2450.00 |
+| 17782 | CLARK  | 2850.00 | KING        |  NULL | 5000.00 |
+| 17788 | SCOTT  | 3000.00 | KING        |  NULL | 5000.00 |
+| 17844 | TURNER | 1500.00 | BLAKE       | 17839 | 2450.00 |
+| 17876 | ADAMS  | 1100.00 | SCOTT       | 17839 | 3000.00 |
+| 17698 | BLAKE  | 2450.00 | KING        |  NULL | 5000.00 |
++-------+--------+---------+-------------+-------+---------+
+11 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.sal, b.ename as managerName, b.mgrid as mgrid, b.sal from emp as a, emp as b where a.mgrid = b.empno and a.doj < b.doj;
++-------+--------+---------+-------------+-------+---------+
+| empno | ename  | sal     | managerName | mgrid | sal     |
++-------+--------+---------+-------------+-------+---------+
+| 17369 | SMITH  |  800.00 | FORD        | 17902 | 3000.00 |
+| 17499 | ALLEN  | 1600.00 | BLAKE       | 17839 | 2450.00 |
+| 17521 | WARD   | 1250.00 | BLAKE       | 17839 | 2450.00 |
+| 17566 | JONES  | 2975.00 | KING        |  NULL | 5000.00 |
+| 17782 | CLARK  | 2850.00 | KING        |  NULL | 5000.00 |
+| 17788 | SCOTT  | 3000.00 | KING        |  NULL | 5000.00 |
+| 17844 | TURNER | 1500.00 | BLAKE       | 17839 | 2450.00 |
++-------+--------+---------+-------------+-------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select a.empno, a.ename, a.doj, b.ename as managerName, b.doj as mgr_doj,  from emp as a, emp as b where a.mgrid = b.empno and a.doj < b.doj;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from emp as a, emp as b where a.mgrid = b.empno and a.doj < b.doj' at line 1
+mysql> select a.empno, a.ename, a.doj, b.ename as managerName, b.doj as mgr_doj  from emp as a, emp as b where a.mgrid = b.empno and a.doj < b.doj;
++-------+--------+---------------------+-------------+---------------------+
+| empno | ename  | doj                 | managerName | mgr_doj             |
++-------+--------+---------------------+-------------+---------------------+
+| 17369 | SMITH  | 1999-12-11 00:00:00 | FORD        | 2001-12-04 00:00:00 |
+| 17499 | ALLEN  | 2001-02-20 00:00:00 | BLAKE       | 2001-12-04 00:00:00 |
+| 17521 | WARD   | 2001-02-22 00:00:00 | BLAKE       | 2001-12-04 00:00:00 |
+| 17566 | JONES  | 2001-04-21 00:00:00 | KING        | 2001-11-19 00:00:00 |
+| 17782 | CLARK  | 2001-05-01 00:00:00 | KING        | 2001-11-19 00:00:00 |
+| 17788 | SCOTT  | 2001-06-09 00:00:00 | KING        | 2001-11-19 00:00:00 |
+| 17844 | TURNER | 2001-09-08 00:00:00 | BLAKE       | 2001-12-04 00:00:00 |
++-------+--------+---------------------+-------------+---------------------+
+7 rows in set (0.00 sec)
+
+mysql> select ename from emp where deptno = (select deptno from emp where ename = 'miller');
++--------+
+| ename  |
++--------+
+| MILLER |
+| KING   |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select distinmct ename from emp where deptno = (select deptno from emp where ename = 'miller');
+ERROR 1054 (42S22): Unknown column 'distinmct' in 'field list'
+mysql> select distinct ename from emp where deptno = (select deptno from emp where ename = 'miller');
++--------+
+| ename  |
++--------+
+| MILLER |
+| KING   |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select distinct ename from emp where deptno = (select deptno from emp where ename = 'miller') and ename != 'miller';
++-------+
+| ename |
++-------+
+| KING  |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select ename, nax(sal) from emp
+    -> ;
+ERROR 1305 (42000): FUNCTION assignment.nax does not exist
+mysql> select ename, max(sal) from emp
+    -> ;
++--------+----------+
+| ename  | max(sal) |
++--------+----------+
+| MILLER |  5000.00 |
++--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select sal from emp;
++---------+
+| sal     |
++---------+
+| 1430.00 |
+|  800.00 |
+| 1600.00 |
+| 1250.00 |
+| 2975.00 |
+| 1250.00 |
+| 2850.00 |
+| 3000.00 |
+| 5000.00 |
+| 1500.00 |
+| 1100.00 |
+|  950.00 |
+| 3000.00 |
+| 2450.00 |
++---------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where sal=5000;
++-------+
+| ename |
++-------+
+| KING  |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select ename,sal from emp;
++--------+---------+
+| ename  | sal     |
++--------+---------+
+| MILLER | 1430.00 |
+| SMITH  |  800.00 |
+| ALLEN  | 1600.00 |
+| WARD   | 1250.00 |
+| JONES  | 2975.00 |
+| MARTIN | 1250.00 |
+| CLARK  | 2850.00 |
+| SCOTT  | 3000.00 |
+| KING   | 5000.00 |
+| TURNER | 1500.00 |
+| ADAMS  | 1100.00 |
+| JAMES  |  950.00 |
+| FORD   | 3000.00 |
+| BLAKE  | 2450.00 |
++--------+---------+
+14 rows in set (0.00 sec)
+
+mysql> select name from emp where sal = (select max(sal) from emp);
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select ename from emp where sal = (select max(sal) from emp);
++-------+
+| ename |
++-------+
+| KING  |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select job from emp where sal = (select max(avg(sal)) from emp group by sal);
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select job from emp where sal = (select max(avg(sal)) from emp group by job);
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select avg(sal), job from emp group by job;
++-------------+-----------+
+| avg(sal)    | job       |
++-------------+-----------+
+| 3000.000000 | ANALYST   |
+| 1070.000000 | CLERK     |
+| 2758.333333 | MANAGER   |
+| 5000.000000 | PRESIDENT |
+| 1400.000000 | SALESMAN  |
++-------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select avg(sal) from emp group by job;
++-------------+
+| avg(sal)    |
++-------------+
+| 3000.000000 |
+| 1070.000000 |
+| 2758.333333 |
+| 5000.000000 |
+| 1400.000000 |
++-------------+
+5 rows in set (0.00 sec)
+
+mysql> select max(avg(sal)) from emp group by job;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select max(max_sal) from select avg(sal) as max_sal from emp group by job;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select avg(sal) as max_sal from emp group by job' at line 1
+mysql> select max(max_sal) (from select avg(sal) as max_sal from emp group by job);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(from select avg(sal) as max_sal from emp group by job)' at line 1
+mysql> select max(avg(sal)) from emp where job in (select distinct job from emp);
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select distinct from job from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from job from emp' at line 1
+mysql> select distinct job  from emp;
++-----------+
+| job       |
++-----------+
+| CLERK     |
+| SALESMAN  |
+| MANAGER   |
+| ANALYST   |
+| PRESIDENT |
++-----------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+
